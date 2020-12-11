@@ -1,1 +1,4 @@
+modelo\usuario\Administrador.class
 util\JpaUtil.class
+controle\NovoAdm.class
+dao\DAO.class
