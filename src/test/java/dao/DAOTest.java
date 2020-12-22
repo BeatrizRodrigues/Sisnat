@@ -36,7 +36,7 @@ public class DAOTest {
         
     }
 
-  @Test
+  /*@Test
     public void testeInserirAdm() {
         Administrador adm = new Administrador();
         adm.setLogin("Amora");
@@ -46,7 +46,7 @@ public class DAOTest {
         
         DAO <Administrador> d = new DAO(Administrador.class);
         d.inserir(adm);
-    }
+    }*/
     
     @Test
     public void testeListarAdm(){

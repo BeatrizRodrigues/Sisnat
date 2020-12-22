@@ -1,4 +1,7 @@
 modelo\usuario\Administrador.class
+controle\IndexControle.class
+dao\DAO.class
+dao\ExcecaoObjetoNaoEncontrado.class
+dao\DAOAdm.class
 util\JpaUtil.class
 controle\NovoAdm.class
-dao\DAO.class
