@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">  
+        <ui:define name="body">
+            <h:form >
+                <h:panelGrid style=" width:100%; text-align: right"  >                 
+                        <p:commandLink styleClass="link" value="menu" action="/menu"  />                                  
+                </h:panelGrid>
+            </h:form>
+            <p/>
+            <h:form>
+                <p:commandLink styleClass="link" value="Cadastrar novo animal"
+                               action="#{animalControle.abrePopupGrupo()}"
+                               update="popupGrupo" />
+            </h:form> 
+            <p/>
+            <h:form id="formPrincipal" >
+                <p:dataTable var="animal" value="#{animalControle.lista}"
+                             tableStyle="width:auto;  min-width: 100%" > 
+                    <p:column headerText="Id">
+                        <p:commandLink styleClass="link" value="#{animal.id}" action="#{animalControle.abreFicha(animal)}" />
+                    </p:column>
+                    <p:column headerText="Animais:">
+                        <h:outputText value="#{animal.nomeCientifico}" />
+                    </p:column>
+                    <p:column headerText="Data de Entrada:">
+                        <h:outputText value="#{animal.dataEntrada}" > <f:convertDateTime pattern="dd/MM/yyyy"/> 
+                        </h:outputText> 
+                    </p:column>
+                </p:dataTable>   
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:outputPanel style="width: 100%; text-align:center" layout="block"> 
+                        <p:commandButton value="sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:outputPanel>
+                </p:confirmDialog> 
+            </h:form>
+
+
+            <p:dialog closable="false" modal="true" header="Escolha o grupo"
+                      id="popupGrupo" appendTo="@(body)" widgetVar="popupGrupo"
+                      visible="#{animalControle.popupGrupo}" >
+                <h:form id="formPopupGrupo" >                    
+                    <h:panelGrid columns="2">
+                        <p:outputLabel value="Grupo: "/>
+                        <p:selectOneRadio value="#{animalControle.grupo}" unselectable="true"
+                                          required="true" requiredMessage="Grupo obrigatório" >
+                            <f:selectItem itemLabel="Amphibia" itemValue="Amphibia"/>
+                            <f:selectItem itemLabel="Arachnida" itemValue="Arachnida"/>
+                            <f:selectItem itemLabel="Ave" itemValue="Ave"/>
+                            <f:selectItem itemLabel="Mammalia" itemValue="Mammalia"/>
+                            <f:selectItem itemLabel="Reptilia" itemValue="Reptilia"/>
+                        </p:selectOneRadio>                                                   
+                    </h:panelGrid>
+                    
+                    <p:commandButton value="fechar" action="#{animalControle.fechaPopupGrupo()}"
+                                     update="popupGrupo"/>
+                    <p:commandButton value="continuar" action="#{animalControle.preparaNovoAnimal()}"
+                                     update="popupGrupo"/>
+                    
+                </h:form>
+            </p:dialog>            
+
+        </ui:define>
+    </ui:composition>
+</html>

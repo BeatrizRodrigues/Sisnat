@@ -1,62 +1,85 @@
-
 package dao;
 
 import java.util.List;
+import modelo.animal.Animal;
 import modelo.usuario.Administrador;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author beeat
- */
 public class DAOTest {
-    
+
     public DAOTest() {
     }
-    
-    @BeforeClass
+
+    @BeforeAll
     public static void setUpClass() {
     }
-    
-    @AfterClass
+
+    @AfterAll
     public static void tearDownClass() {
     }
-    
-    @Before
+
+    @BeforeEach
     public void setUp() {
     }
-    
-    @After
+
+    @AfterEach
     public void tearDown() {
-        
     }
 
-  /*@Test
+    /*@Test
     public void testeInserirAdm() {
         Administrador adm = new Administrador();
-        adm.setLogin("Amora");
-        adm.setNome("Izabelle");
-        adm.setSenha("123456");
-        adm.setCargo("Estagiario");
+        adm.setLogin("BIA");
+        adm.setNome("Beatriz");
+        adm.setSenha("123");
+        adm.setCargo("Administrador");
         
         DAO <Administrador> d = new DAO(Administrador.class);
         d.inserir(adm);
     }*/
     
-    @Test
-    public void testeListarAdm(){
-        DAO <Administrador> d = new DAO(Administrador.class);
-        List<Administrador> lista = d.listarTodos();
-        for(Administrador a: lista){
-            System.out.println(a.getNome());
-        }
+    
+    /*@Test
+    public void testeListarAdm() {
+    DAO<Administrador> d = new DAO(Administrador.class);
+    List<Administrador> lista = d.listarTodos();
+    System.out.println("\n\n\n\n");
+    for (Administrador a : lista) {
+    System.out.println(a.getNome());
     }
+    System.out.println("\n\n\n\n");
+    }*/
+    
+    /*   @Test
+    public void testeInserirAnimal() {
+    Animal anm = new Animal();
+    anm.setEspecie("Serpente");
+    anm.setNomeCientifico("Cobra"):
+    anm.setNomePopular("cobra");
+    anm.setSexo("macho");
+    anm.setLocalResgate("UENP");
+    anm.setFichaClinica("Saudavel");
+    anm.setAlimentacao("frutas");
     
     
+    DAO <Animal> d = new DAO(Animal.class);
+    d.inserir(anm);
+    }*/
     
+    /*   @Test
+    public void testeListarAnimal() {
+    DAO<Animal> d = new DAO(Animal.class);
+    List<Animal> lista = d.listarTodos();
+    System.out.println("\n\n\n\n");
+    for (Animal a : lista) {
+    System.out.println(a.getNomePopular());
+    }
+    System.out.println("\n\n\n\n");
+    }*/
+
 }

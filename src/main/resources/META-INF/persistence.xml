@@ -3,6 +3,22 @@
   <persistence-unit name="SisnatPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>modelo.usuario.Administrador</class>
+    <class>modelo.animal.Animal</class>
+    <class>modelo.animal.Alimentacao</class>
+    <class>modelo.animal.FichaClinica</class>
+    <class>modelo.animal.Amphibia</class>
+    <class>modelo.animal.Arachnida</class>
+    <class>modelo.animal.Ave</class>
+    <class>modelo.animal.Ecdise</class>
+    <class>modelo.animal.MorfometriaAmphibia</class>
+    <class>modelo.animal.MorfometriaArachnida</class>
+    <class>modelo.animal.MorfometriaAves</class>
+    <class>modelo.animal.MorfometriaReptilia</class>
+    <class>modelo.animal.Observacao</class>
+    <class>modelo.animal.Reptilia</class>
+    <class>modelo.animal.Nome</class>
+    <class>modelo.animal.Mammalia</class>
+    <class>modelo.animal.MorfometriaMammalia</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Sisnat"/>
@@ -10,7 +26,7 @@
       <property name="javax.persistence.jdbc.password" value="Amora"/>
       <!-- EclipseLink should create the database schema automatically -->
       <property name="eclipselink.ddl-generation" value="create-tables"/>
-      <!--property name="eclipselink.ddl-generation" value="create-or-extend-tables"/-->
+      <!-- property name="eclipselink.ddl-generation" value="create-or-extend-tables"/ -->
       <property name="eclipselink.ddl-generation.output-mode" value="database"/>
       <!--property name="eclipselink.cache.shared.default" value="false"/-->
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

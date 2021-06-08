@@ -11,6 +11,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Administrador implements Serializable {
+
+   
+
     @Id
       @GeneratedValue(strategy = GenerationType.IDENTITY)      
     private Integer id;
@@ -26,6 +29,9 @@ public class Administrador implements Serializable {
     
     @Column(length = 20)
     private String cargo;
+    
+    @Column(length = 30)
+    private String email;
         
     public Administrador(){
         id = 0;
@@ -33,6 +39,7 @@ public class Administrador implements Serializable {
         nome = "";
         senha = "";
         cargo = "";
+        email = "";
     }
 
     public Integer getId() {
@@ -75,6 +82,13 @@ public class Administrador implements Serializable {
         this.cargo = cargo;
     }
     
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     
     @Override
     public int hashCode() {
