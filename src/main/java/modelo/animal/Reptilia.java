@@ -31,11 +31,11 @@ public class Reptilia extends Animal implements Serializable {
         ecdises = new ArrayList();
     }
 
-    public List<MorfometriaReptilia> getMorfometria() {
+    public List<MorfometriaReptilia> getMorfometrias() {
         return morfometrias;
     }
 
-    public void setMorfometria(List<MorfometriaReptilia> morfometria) {
+    public void setMorfometrias(List<MorfometriaReptilia> morfometria) {
         this.morfometrias = morfometria;
     }
 

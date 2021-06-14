@@ -29,9 +29,9 @@ public class MorfometriaMammaliaControle implements Serializable {
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        animal = (Animal) ectx.getSessionMap().get("animal");
-        mammalia = (Mammalia) ectx.getSessionMap().get("mammalia");
-        dao = new DAO(Arachnida.class);
+        //animal = (Animal) ectx.getSessionMap().get("animal");
+        mammalia = (Mammalia) ectx.getSessionMap().get("animal");
+        dao = new DAO(Mammalia.class);
         morfometria = new MorfometriaMammalia();
     }
     

@@ -28,8 +28,8 @@ public class MorfometriaArachnidaControle implements Serializable{
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        animal = (Animal) ectx.getSessionMap().get("animal");
-        arachnida = (Arachnida) ectx.getSessionMap().get("arachnida");
+       // animal = (Animal) ectx.getSessionMap().get("animal");
+        arachnida = (Arachnida) ectx.getSessionMap().get("animal");
         dao = new DAO(Arachnida.class);
         morfometria = new MorfometriaArachnida();
     }

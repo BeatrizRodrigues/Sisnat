@@ -29,8 +29,8 @@ public class MorfometriaAmphibiaControle implements Serializable{
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        animal = (Animal) ectx.getSessionMap().get("animal");
-        amphibia = (Amphibia) ectx.getSessionMap().get("amphibia");
+        //animal = (Animal) ectx.getSessionMap().get("animal");
+        amphibia = (Amphibia) ectx.getSessionMap().get("animal");
         dao = new DAO(Amphibia.class);
         morfometria = new MorfometriaAmphibia();
     }

@@ -28,12 +28,13 @@ public class MorfometriaReptiliaControle implements Serializable{
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        animal = (Animal) ectx.getSessionMap().get("animal");
-        reptilia = (Reptilia) ectx.getSessionMap().get("reptilia");
+//        animal = (Animal) ectx.getSessionMap().get("animal");
+//        reptilia = (Reptilia) ectx.getSessionMap().get("reptilia");
+        reptilia = (Reptilia) ectx.getSessionMap().get("animal");
         dao = new DAO(Reptilia.class);
         morfometria = new MorfometriaReptilia();
     }
-    
+        
     public void abrePopupNovo() {
         morfometria = new MorfometriaReptilia();
         this.popupNovo = true;
@@ -45,7 +46,7 @@ public class MorfometriaReptiliaControle implements Serializable{
     
     public void inserir() {
         morfometria.setReptilia(reptilia);
-        reptilia.getMorfometria().add(morfometria);
+        reptilia.getMorfometrias().add(morfometria);
         dao.alterar(reptilia);
         morfometria = new MorfometriaReptilia();
     }
