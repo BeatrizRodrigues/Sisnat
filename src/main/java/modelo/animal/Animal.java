@@ -101,8 +101,8 @@ public class Animal implements Serializable{
     @OneToMany(mappedBy = "animal", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Observacao> observacoes;
     
-    @OneToMany(mappedBy = "animal", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ecdise> ecdise;
+    /*@OneToMany(mappedBy = "animal", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ecdise> ecdise;*/
    
     public Animal(){
         id = 0;
@@ -127,7 +127,7 @@ public class Animal implements Serializable{
         fichas = new ArrayList();
         alimentacoes = new ArrayList();
         observacoes = new ArrayList();
-        ecdise = new ArrayList();
+        //ecdise = new ArrayList();
         soltura = false;
     }
     
@@ -315,13 +315,13 @@ public class Animal implements Serializable{
         this.observacoes = observacoes;
     }
 
-    public List<Ecdise> getEcdise() {
+    /*public List<Ecdise> getEcdise() {
         return ecdise;
     }
 
     public void setEcdise(List<Ecdise> ecdise) {
         this.ecdise = ecdise;
-    }
+    }*/
     
     
 
@@ -351,7 +351,7 @@ public class Animal implements Serializable{
         hash = 59 * hash + Objects.hashCode(this.alimentacoes);
         hash = 59 * hash + Objects.hashCode(this.fichas);
         hash = 59 * hash + Objects.hashCode(this.observacoes);
-        hash = 59 * hash + Objects.hashCode(this.ecdise);
+        //hash = 59 * hash + Objects.hashCode(this.ecdise);
         return hash;
     }
 
@@ -436,15 +436,15 @@ public class Animal implements Serializable{
         if (!Objects.equals(this.observacoes, other.observacoes)) {
             return false;
         }
-        if (!Objects.equals(this.ecdise, other.ecdise)) {
+        /*if (!Objects.equals(this.ecdise, other.ecdise)) {
             return false;
-        }
+        }*/
         return true;
     }
 
     @Override
     public String toString() {
-        return "Animal{" + "id=" + id + ", grupo=" + grupo + ", nomeCientifico=" + nomeCientifico + ", nomePopular=" + nomePopular + ", sexo=" + sexo + ", faixaEtaria=" + faixaEtaria + ", condicaoFisica=" + condicaoFisica + ", procedencia=" + procedencia + ", motivo=" + motivo + ", BO=" + BO + ", municipioDeOrigem=" + municipioDeOrigem + ", endereco=" + endereco + ", coordenadas=" + coordenadas + ", nomeDoador=" + nomeDoador + ", telefone=" + telefone + ", areaDoResgate=" + areaDoResgate + ", dataEntrada=" + dataEntrada + ", dataNascimento=" + dataNascimento + ", observacao=" + observacao + ", soltura=" + soltura + ", alimentacoes=" + alimentacoes + ", fichas=" + fichas + ", observacoes=" + observacoes + ", ecdise=" + ecdise + '}';
+        return "Animal{" + "id=" + id + ", grupo=" + grupo + ", nomeCientifico=" + nomeCientifico + ", nomePopular=" + nomePopular + ", sexo=" + sexo + ", faixaEtaria=" + faixaEtaria + ", condicaoFisica=" + condicaoFisica + ", procedencia=" + procedencia + ", motivo=" + motivo + ", BO=" + BO + ", municipioDeOrigem=" + municipioDeOrigem + ", endereco=" + endereco + ", coordenadas=" + coordenadas + ", nomeDoador=" + nomeDoador + ", telefone=" + telefone + ", areaDoResgate=" + areaDoResgate + ", dataEntrada=" + dataEntrada + ", dataNascimento=" + dataNascimento + ", observacao=" + observacao + ", soltura=" + soltura + ", alimentacoes=" + alimentacoes + ", fichas=" + fichas + ", observacoes=" + observacoes + '}';
     }
 
     

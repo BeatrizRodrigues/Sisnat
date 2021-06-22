@@ -23,7 +23,7 @@ public class Reptilia extends Animal implements Serializable {
     @OneToMany(mappedBy = "reptilia", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MorfometriaReptilia> morfometrias;
     
-    @OneToMany(mappedBy = "animal", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "reptilia", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ecdise> ecdises;
     
     public Reptilia(){

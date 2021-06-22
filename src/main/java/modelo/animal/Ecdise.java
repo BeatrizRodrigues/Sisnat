@@ -32,14 +32,24 @@ public class Ecdise implements Serializable {
     private String ecdise;
     
     @ManyToOne
-    @JoinColumn(name = "animal")
-    private Animal animal;
+    @JoinColumn(name = "amphibia")
+    private Amphibia amphibia;
+    
+    @ManyToOne
+    @JoinColumn(name = "reptilia")
+    private Reptilia reptilia;
+    
+    @ManyToOne
+    @JoinColumn(name = "arachnida")
+    private Arachnida arachnida;
     
     
     public Ecdise(){
         dataEcdise = new Date();
         ecdise = "";
-        animal = new Animal();
+        amphibia = new Amphibia();
+        arachnida = new Arachnida();
+        reptilia = new Reptilia();
     }
 
     public Integer getId() {
@@ -66,24 +76,39 @@ public class Ecdise implements Serializable {
         this.ecdise = ecdise;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    public Amphibia getAmphibia() {
+        return amphibia;
     }
 
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
+    public void setAmphibia(Amphibia amphibia) {
+        this.amphibia = amphibia;
     }
 
-    
+    public Reptilia getReptilia() {
+        return reptilia;
+    }
+
+    public void setReptilia(Reptilia reptilia) {
+        this.reptilia = reptilia;
+    }
+
+    public Arachnida getArachnida() {
+        return arachnida;
+    }
+
+    public void setArachnida(Arachnida arachnida) {
+        this.arachnida = arachnida;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.id);
-        hash = 89 * hash + Objects.hashCode(this.dataEcdise);
-        hash = 89 * hash + Objects.hashCode(this.ecdise);
-        hash = 89 * hash + Objects.hashCode(this.animal);
-        
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        hash = 97 * hash + Objects.hashCode(this.dataEcdise);
+        hash = 97 * hash + Objects.hashCode(this.ecdise);
+        hash = 97 * hash + Objects.hashCode(this.amphibia);
+        hash = 97 * hash + Objects.hashCode(this.reptilia);
+        hash = 97 * hash + Objects.hashCode(this.arachnida);
         return hash;
     }
 
@@ -108,18 +133,21 @@ public class Ecdise implements Serializable {
         if (!Objects.equals(this.dataEcdise, other.dataEcdise)) {
             return false;
         }
-        if (!Objects.equals(this.animal, other.animal)) {
+        if (!Objects.equals(this.amphibia, other.amphibia)) {
             return false;
         }
-        
+        if (!Objects.equals(this.reptilia, other.reptilia)) {
+            return false;
+        }
+        if (!Objects.equals(this.arachnida, other.arachnida)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Ecdise{" + "id=" + id + ", dataEcdise=" + dataEcdise + ", ecdise=" + ecdise + ", animal=" + animal + '}';
-    }
-
-    
+        return "Ecdise{" + "id=" + id + ", dataEcdise=" + dataEcdise + ", ecdise=" + ecdise + ", amphibia=" + amphibia + ", reptilia=" + reptilia + ", arachnida=" + arachnida + '}';
+    } 
     
 }

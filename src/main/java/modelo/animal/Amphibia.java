@@ -23,8 +23,12 @@ public class Amphibia extends Animal implements Serializable {
     @OneToMany(mappedBy = "amphibia", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MorfometriaAmphibia> morfometria;
     
+    @OneToMany(mappedBy = "amphibia", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ecdise> ecdises;
+    
     public Amphibia(){
         morfometria = new ArrayList();
+        ecdises = new ArrayList();
     }
 
     public List<MorfometriaAmphibia> getMorfometria() {
@@ -35,10 +39,19 @@ public class Amphibia extends Animal implements Serializable {
         this.morfometria = morfometria;
     }
 
+    public List<Ecdise> getEcdises() {
+        return ecdises;
+    }
+
+    public void setEcdises(List<Ecdise> ecdises) {
+        this.ecdises = ecdises;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 43 * hash + Objects.hashCode(this.morfometria);
+        hash = 83 * hash + Objects.hashCode(this.morfometria);
+        hash = 83 * hash + Objects.hashCode(this.ecdises);
         return hash;
     }
 
@@ -57,16 +70,14 @@ public class Amphibia extends Animal implements Serializable {
         if (!Objects.equals(this.morfometria, other.morfometria)) {
             return false;
         }
+        if (!Objects.equals(this.ecdises, other.ecdises)) {
+            return false;
+        }
         return true;
     }
 
-    
-
     @Override
     public String toString() {
-        return "Amphibia{" + ", morfometria=" + morfometria + '}';
+        return "Amphibia{" + "morfometria=" + morfometria + ", ecdises=" + ecdises + '}';
     }
-    
-    
-            
 }
