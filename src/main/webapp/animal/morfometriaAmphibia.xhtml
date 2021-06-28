@@ -19,7 +19,7 @@
             
             <h:form>
                 <p:commandLink styleClass="link" value="Adicionar morfometria" 
-                               action="#{morfometriaAmphibiaCrontole.abrePopupNovo() }" 
+                               action="#{morfometriaAmphibiaControle.abrePopupNovo()}" 
                                update=":popupNovo" />
             </h:form> 
             <p/>
@@ -27,36 +27,36 @@
                 <p:dataTable var="Morfometria" value="#{morfometriaAmphibiaControle.amphibia.morfometria}"
                              tableStyle="widt:auto; min-width: 100%" emptyMessage="Nenhuma morfometria cadastrada">
                     <p:column headerText="Data da morfometria:">
-                        <h:outputText value="#{morfometriaAmphibia.dataMedicao}"> 
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cc}"> 
                             <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>
                     </p:column>
                     <p:column headerText="Peso:">
-                        <h:outputText value="#{morfometriaAmphibia.peso}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.peso}"/>
                     </p:column>
                     <p:column headerText="C.R.C.:">
-                        <h:outputText value="#{morfometriaAmphibia.crc}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.crc}"/>
                     </p:column>
                     <p:column headerText="C.C:">
-                        <h:outputText value="#{morfometriaAmphibia.cc}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cc}"/>
                     </p:column>
                     <p:column headerText="D.O.N.:">
-                        <h:outputText value="#{morfometriaAmphibia.don}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.don}"/>
                     </p:column>
                     <p:column headerText="C.F.:">
-                        <h:outputText value="#{morfometriaAmphibia.cf}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cf}"/>
                     </p:column>
                     <p:column headerText="C.T.:">
-                        <h:outputText value="#{morfometriaAmphibia.ct}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.ct}"/>
                     </p:column>
                     <p:column headerText="C.T.A.:">
-                        <h:outputText value="#{morfometriaAmphibia.cta}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cta}"/>
                     </p:column>
                     <p:column headerText="C.P.:">
-                        <h:outputText value="#{morfometriaAmphibia.cp}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cp}"/>
                     </p:column>
                     <p:column headerText="Obs.:">
-                        <h:outputText value="#{morfometriaAmphibia.observacao}"/>
+                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.observacao}"/>
                     </p:column>
                     
                 </p:dataTable>
@@ -73,7 +73,7 @@
                 <h:form id="formPopupNovo">
                     <h:panelGrid columns="2">
                         <p:outputLabel value="Data "/>
-                        <p:calendar id="button" value="#{morfometriaMammaliaControle.morfometria.dataMedicao}"
+                        <p:calendar id="button" value="#{morfometriaAmphibiaControle.morfometria.dataMedicao}"
                                     showOn="button" pattern="dd/MM/yyyy" mask="true"/>
                         <p:outputLabel value="Peso"/>
                         <p:inputText value="#{morfometriaAmphibiaControle.morfometria.peso}" maxlength="15"

@@ -95,14 +95,14 @@ public class AnimalControle implements Serializable {
             ExternalContext ectx = context.getExternalContext();
             ectx.getSessionMap().put("animal", animal);
             System.out.println("Mammalia");
-            return "MammaliaCadastrada?faces-redirect=true";
+            return "mammaliaCadastrada?faces-redirect=true";
         }
         if (animal instanceof Ave){
             FacesContext context = FacesContext.getCurrentInstance();
             ExternalContext ectx = context.getExternalContext();
             ectx.getSessionMap().put("animal", animal);
             System.out.println("Ave");
-            return "AveCadastrada?faces-redirect=true";
+            return "aveCadastrada?faces-redirect=true";
         }
         if (animal instanceof Arachnida){
             FacesContext context = FacesContext.getCurrentInstance();

@@ -33,24 +33,24 @@
                 <p:dataTable var="Morfometria" value="#{morfometriaArachnidaControle.arachnida.morfometria}"
                              tableStyle="widt:auto; min-width: 100%" emptyMessage="Nenhuma morfometria cadastrada">
                     <p:column headerText="Data da morfometria:">
-                        <h:outputText value="#{morfometriaArachnida.dataMedicao}"> 
+                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.dataMedicao}"> 
                             <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>
                     </p:column>
                     <p:column headerText="Peso:">
-                        <h:outputText value="#{morfometriaArachnida.peso}"/>
+                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.peso}"/>
                     </p:column>
                     <p:column headerText="C.C:">
-                        <h:outputText value="#{morfometriaArachnida.cc}"/>
+                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.cc}"/>
                     </p:column>
                     <p:column headerText="C.P.:">
-                        <h:outputText value="#{morfometriaArachnida.cp}"/>
+                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.cp}"/>
                     </p:column>
                     <p:column headerText="C.P.P.:">
-                        <h:outputText value="#{morfometriaArachnida.cpp}"/>
+                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.cpp}"/>
                     </p:column>
                     <p:column headerText="Obs.:">
-                        <h:outputText value="#{morfometriaArachnida.observacao}"/>
+                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.observacao}"/>
                     </p:column>
                     
                 </p:dataTable>

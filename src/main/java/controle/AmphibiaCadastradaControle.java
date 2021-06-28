@@ -9,7 +9,6 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import modelo.animal.Amphibia;
 import modelo.animal.Animal;
-import modelo.animal.MorfometriaAmphibia;
 
 /**
  *
@@ -19,17 +18,14 @@ import modelo.animal.MorfometriaAmphibia;
 @Named
 public class AmphibiaCadastradaControle implements Serializable{
     private Animal animal;
-    private Amphibia amphibia;
     private DAO<Amphibia> dao;
-    private MorfometriaAmphibia morfometria;
-        
+       
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         animal = (Animal) ectx.getSessionMap().get("animal");
-        amphibia = (Amphibia) ectx.getSessionMap().get("amphibia");
-        dao = new DAO(Amphibia.class);
+        dao = new DAO(Animal.class);
     }
        
     public String alimentar(Animal animal){
@@ -51,22 +47,6 @@ public class AmphibiaCadastradaControle implements Serializable{
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
         return "/animal/morfometriaAmphibia";
-    }
-
-    public Amphibia getAmphibia() {
-        return amphibia;
-    }
-
-    public void setAmphibia(Amphibia amphibia) {
-        this.amphibia = amphibia;
-    }
-
-    public MorfometriaAmphibia getMorfometria() {
-        return morfometria;
-    }
-
-    public void setMorfometria(MorfometriaAmphibia morfometria) {
-        this.morfometria = morfometria;
     }
     
     public Animal getAnimal() {
