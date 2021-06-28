@@ -2,6 +2,7 @@ package controle;
 
 import dao.DAO;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -23,13 +24,11 @@ public class MorfometriaMammaliaControle implements Serializable {
     private DAO<Mammalia> dao;
     private boolean popupNovo;
     private MorfometriaMammalia morfometria;
-    private Animal animal;
     
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        //animal = (Animal) ectx.getSessionMap().get("animal");
         mammalia = (Mammalia) ectx.getSessionMap().get("animal");
         dao = new DAO(Mammalia.class);
         morfometria = new MorfometriaMammalia();
@@ -83,13 +82,46 @@ public class MorfometriaMammaliaControle implements Serializable {
         this.morfometria = morfometria;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.mammalia);
+        hash = 79 * hash + Objects.hashCode(this.dao);
+        hash = 79 * hash + (this.popupNovo ? 1 : 0);
+        hash = 79 * hash + Objects.hashCode(this.morfometria);
+        return hash;
     }
 
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MorfometriaMammaliaControle other = (MorfometriaMammaliaControle) obj;
+        if (this.popupNovo != other.popupNovo) {
+            return false;
+        }
+        if (!Objects.equals(this.mammalia, other.mammalia)) {
+            return false;
+        }
+        if (!Objects.equals(this.dao, other.dao)) {
+            return false;
+        }
+        if (!Objects.equals(this.morfometria, other.morfometria)) {
+            return false;
+        }
+        return true;
     }
-    
+
+    @Override
+    public String toString() {
+        return "MorfometriaMammaliaControle{" + "mammalia=" + mammalia + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
+    }
     
 }

@@ -39,14 +39,14 @@ public class AmphibiaCadastradaControle implements Serializable{
         return "/animal/alimentacao";
     }
     
-    public String ecdise(Animal animal){
+    public String ecdise(Amphibia amphibia){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
-        return "/animal/ecdise";
+        return "/animal/ecdiseAmphibia";
     }
     
-    public String morfometria(Animal animal){
+    public String morfometria(Amphibia amphibia){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);

@@ -24,7 +24,7 @@ public class Amphibia extends Animal implements Serializable {
     private List<MorfometriaAmphibia> morfometria;
     
     @OneToMany(mappedBy = "amphibia", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ecdise> ecdises;
+    private List<EcdiseAmphibia> ecdises;
     
     public Amphibia(){
         morfometria = new ArrayList();
@@ -39,11 +39,11 @@ public class Amphibia extends Animal implements Serializable {
         this.morfometria = morfometria;
     }
 
-    public List<Ecdise> getEcdises() {
+    public List<EcdiseAmphibia> getEcdises() {
         return ecdises;
     }
 
-    public void setEcdises(List<Ecdise> ecdises) {
+    public void setEcdises(List<EcdiseAmphibia> ecdises) {
         this.ecdises = ecdises;
     }
 

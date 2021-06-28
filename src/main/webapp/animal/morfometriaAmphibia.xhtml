@@ -10,15 +10,9 @@
         <ui:define name="body">
             <h:form >
                 <h:panelGrid style=" width:100%; text-align: right"  >                 
-                    <p:commandLink styleClass="link" value="menu" action="/menu"  />                                  
+                    <p:commandLink styleClass="link" value="voltar" action="/animal"  />                                  
                 </h:panelGrid>
             </h:form>   
-            <p/>
-            <h:form >
-                <h:panelGrid style=" width:100%; text-align: right"  >                 
-                    <p:link outcome="animal" value="animal" styleClass="link" />                                 
-                </h:panelGrid>
-            </h:form>
             <p/>
             
             <p:outputLabel value="#{morfometriaAmphibiaControle.amphibia.nomeCientifico}"/>

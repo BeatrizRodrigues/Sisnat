@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controle;
 
 import dao.DAO;
@@ -9,21 +14,19 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import modelo.animal.Amphibia;
-import modelo.animal.Animal;
-import modelo.animal.MorfometriaAmphibia;
+import modelo.animal.EcdiseAmphibia;
 
 /**
  *
  * @author beeat
  */
-
 @ViewScoped
 @Named
-public class MorfometriaAmphibiaControle implements Serializable{
+public class EcdiseAmphibiaControle implements Serializable  {
     private Amphibia amphibia;
-    private DAO<Amphibia> dao;
+    private EcdiseAmphibia ecdise;
     private boolean popupNovo;
-    private MorfometriaAmphibia morfometria;
+    private DAO<Amphibia> dao;
     
     @PostConstruct
     public void inicializar(){         
@@ -31,11 +34,11 @@ public class MorfometriaAmphibiaControle implements Serializable{
         ExternalContext ectx = context.getExternalContext();
         amphibia = (Amphibia) ectx.getSessionMap().get("animal");
         dao = new DAO(Amphibia.class);
-        morfometria = new MorfometriaAmphibia();
+        ecdise = new EcdiseAmphibia();
     }
     
     public void abrePopupNovo() {
-        morfometria = new MorfometriaAmphibia();
+        ecdise = new EcdiseAmphibia();
         this.popupNovo = true;
     }
     
@@ -44,10 +47,10 @@ public class MorfometriaAmphibiaControle implements Serializable{
     }
     
     public void inserir() {
-        morfometria.setAmphibia(amphibia);
-        amphibia.getMorfometria().add(morfometria);
+        ecdise.setAmphibia(amphibia);
+        amphibia.getEcdises().add(ecdise);
         dao.alterar(amphibia);
-        morfometria = new MorfometriaAmphibia();
+        ecdise = new EcdiseAmphibia();
     }
 
     public Amphibia getAmphibia() {
@@ -58,12 +61,12 @@ public class MorfometriaAmphibiaControle implements Serializable{
         this.amphibia = amphibia;
     }
 
-    public DAO<Amphibia> getDao() {
-        return dao;
+    public EcdiseAmphibia getEcdise() {
+        return ecdise;
     }
 
-    public void setDao(DAO<Amphibia> dao) {
-        this.dao = dao;
+    public void setEcdise(EcdiseAmphibia ecdise) {
+        this.ecdise = ecdise;
     }
 
     public boolean isPopupNovo() {
@@ -74,21 +77,21 @@ public class MorfometriaAmphibiaControle implements Serializable{
         this.popupNovo = popupNovo;
     }
 
-    public MorfometriaAmphibia getMorfometria() {
-        return morfometria;
+    public DAO<Amphibia> getDao() {
+        return dao;
     }
 
-    public void setMorfometria(MorfometriaAmphibia morfometria) {
-        this.morfometria = morfometria;
+    public void setDao(DAO<Amphibia> dao) {
+        this.dao = dao;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.amphibia);
-        hash = 29 * hash + Objects.hashCode(this.dao);
-        hash = 29 * hash + (this.popupNovo ? 1 : 0);
-        hash = 29 * hash + Objects.hashCode(this.morfometria);
+        int hash = 5;
+        hash = 83 * hash + Objects.hashCode(this.amphibia);
+        hash = 83 * hash + Objects.hashCode(this.ecdise);
+        hash = 83 * hash + (this.popupNovo ? 1 : 0);
+        hash = 83 * hash + Objects.hashCode(this.dao);
         return hash;
     }
 
@@ -103,17 +106,17 @@ public class MorfometriaAmphibiaControle implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MorfometriaAmphibiaControle other = (MorfometriaAmphibiaControle) obj;
+        final EcdiseAmphibiaControle other = (EcdiseAmphibiaControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
         if (!Objects.equals(this.amphibia, other.amphibia)) {
             return false;
         }
-        if (!Objects.equals(this.dao, other.dao)) {
+        if (!Objects.equals(this.ecdise, other.ecdise)) {
             return false;
         }
-        if (!Objects.equals(this.morfometria, other.morfometria)) {
+        if (!Objects.equals(this.dao, other.dao)) {
             return false;
         }
         return true;
@@ -121,9 +124,6 @@ public class MorfometriaAmphibiaControle implements Serializable{
 
     @Override
     public String toString() {
-        return "MorfometriaAmphibiaControle{" + "amphibia=" + amphibia + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
+        return "EcdiseAmphibiaControle{" + "amphibia=" + amphibia + ", ecdise=" + ecdise + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
     }
-    
-       
-    
 }

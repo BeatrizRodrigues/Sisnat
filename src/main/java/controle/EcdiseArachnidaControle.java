@@ -8,9 +8,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Animal;
 import modelo.animal.Arachnida;
-import modelo.animal.MorfometriaArachnida;
+import modelo.animal.EcdiseArachnida;
 
 /**
  *
@@ -18,11 +17,11 @@ import modelo.animal.MorfometriaArachnida;
  */
 @ViewScoped
 @Named
-public class MorfometriaArachnidaControle implements Serializable{
+public class EcdiseArachnidaControle implements Serializable{
     private Arachnida arachnida;
-    private DAO<Arachnida> dao;
+    private EcdiseArachnida ecdise;
     private boolean popupNovo;
-    private MorfometriaArachnida morfometria;
+    private DAO<Arachnida> dao;
     
     @PostConstruct
     public void inicializar(){         
@@ -30,11 +29,11 @@ public class MorfometriaArachnidaControle implements Serializable{
         ExternalContext ectx = context.getExternalContext();
         arachnida = (Arachnida) ectx.getSessionMap().get("animal");
         dao = new DAO(Arachnida.class);
-        morfometria = new MorfometriaArachnida();
+        ecdise = new EcdiseArachnida();
     }
     
     public void abrePopupNovo() {
-        morfometria = new MorfometriaArachnida();
+        ecdise = new EcdiseArachnida();
         this.popupNovo = true;
     }
     
@@ -43,10 +42,10 @@ public class MorfometriaArachnidaControle implements Serializable{
     }
     
     public void inserir() {
-        morfometria.setArachnida(arachnida);
-        arachnida.getMorfometria().add(morfometria);
+        ecdise.setArachnida(arachnida);
+        arachnida.getEcdises().add(ecdise);
         dao.alterar(arachnida);
-        morfometria = new MorfometriaArachnida();
+        ecdise = new EcdiseArachnida();
     }
 
     public Arachnida getArachnida() {
@@ -57,12 +56,12 @@ public class MorfometriaArachnidaControle implements Serializable{
         this.arachnida = arachnida;
     }
 
-    public DAO<Arachnida> getDao() {
-        return dao;
+    public EcdiseArachnida getEcdise() {
+        return ecdise;
     }
 
-    public void setDao(DAO<Arachnida> dao) {
-        this.dao = dao;
+    public void setEcdise(EcdiseArachnida ecdise) {
+        this.ecdise = ecdise;
     }
 
     public boolean isPopupNovo() {
@@ -73,21 +72,21 @@ public class MorfometriaArachnidaControle implements Serializable{
         this.popupNovo = popupNovo;
     }
 
-    public MorfometriaArachnida getMorfometria() {
-        return morfometria;
+    public DAO<Arachnida> getDao() {
+        return dao;
     }
 
-    public void setMorfometria(MorfometriaArachnida morfometria) {
-        this.morfometria = morfometria;
+    public void setDao(DAO<Arachnida> dao) {
+        this.dao = dao;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.arachnida);
-        hash = 67 * hash + Objects.hashCode(this.dao);
-        hash = 67 * hash + (this.popupNovo ? 1 : 0);
-        hash = 67 * hash + Objects.hashCode(this.morfometria);
+        hash = 53 * hash + Objects.hashCode(this.arachnida);
+        hash = 53 * hash + Objects.hashCode(this.ecdise);
+        hash = 53 * hash + (this.popupNovo ? 1 : 0);
+        hash = 53 * hash + Objects.hashCode(this.dao);
         return hash;
     }
 
@@ -102,17 +101,17 @@ public class MorfometriaArachnidaControle implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MorfometriaArachnidaControle other = (MorfometriaArachnidaControle) obj;
+        final EcdiseArachnidaControle other = (EcdiseArachnidaControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
         if (!Objects.equals(this.arachnida, other.arachnida)) {
             return false;
         }
-        if (!Objects.equals(this.dao, other.dao)) {
+        if (!Objects.equals(this.ecdise, other.ecdise)) {
             return false;
         }
-        if (!Objects.equals(this.morfometria, other.morfometria)) {
+        if (!Objects.equals(this.dao, other.dao)) {
             return false;
         }
         return true;
@@ -120,7 +119,6 @@ public class MorfometriaArachnidaControle implements Serializable{
 
     @Override
     public String toString() {
-        return "MorfometriaArachnidaControle{" + "arachnida=" + arachnida + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
+        return "EcdiseArachnidaControle{" + "arachnida=" + arachnida + ", ecdise=" + ecdise + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
     }
-  
 }

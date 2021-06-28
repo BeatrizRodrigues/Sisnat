@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import modelo.animal.Animal;
+import modelo.animal.Arachnida;
 
 /**
  *
@@ -34,14 +35,14 @@ public class ArachnidaCadastradaControle implements Serializable{
         return "/animal/alimentacao";
     }
     
-    public String ecdise(Animal animal){
+    public String ecdise(Arachnida arachnida){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
-        return "/animal/ecdise";
+        return "/animal/ecdiseArachnida";
     }
     
-    public String morfometria(Animal animal){
+    public String morfometria(Arachnida arachnida){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);

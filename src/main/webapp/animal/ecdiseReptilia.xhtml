@@ -16,12 +16,12 @@
              <p/>
              <h:form>
                 <p:commandLink styleClass="link" value="Adicionar Ecdise" 
-                               action="#{ecdiseControle.abrePopupNovo() }" 
+                               action="#{ecdiseReptiliaControle.abrePopupNovo()}" 
                                update=":popupNovo" />
             </h:form>
             <p/>
             <h:form id="formPrincipal">
-                <p:dataTable var="ecdise" value="#{ecdiseControle.animal.ecdise}"
+                <p:dataTable var="ecdise" value="#{ecdiseReptiliaControle.reptilia.ecdises}"
                              tableStyle="widt:auto; min-width: 100%" emptyMessage="Nenhuma ecdise cadastrada">
                     <p:column headerText="Data da ecdise:">
                         <h:outputText value="#{ecdise.dataEcdise}"> 
@@ -41,21 +41,21 @@
             </h:form>
             
             <p:dialog closable="false" modal="true" header="Nova ecdise"
-                      id="popupNovo" visible="#{ecdiseControle.popupNovo}">
+                      id="popupNovo" visible="#{ecdiseReptiliaControle.popupNovo}">
                 <h:form id="formPopupNovo">
                     <h:panelGrid columns="2">
                         <p:outputLabel value="Data "/>
-                        <p:calendar id="button" value="#{ecdiseControle.ecdise.dataEcdise}"
+                        <p:calendar id="button" value="#{ecdiseReptiliaControle.ecdise.dataEcdise}"
                                     showOn="button" pattern="dd/MM/yyyy" mask="true"/>
                         <p:outputLabel value="Ecdise"/>
-                        <p:inputText value="#{ecdiseControle.ecdise.ecdise}" maxlength="50"
+                        <p:inputText value="#{ecdiseReptiliaControle.ecdise.ecdise}" maxlength="50"
                                      required="true" requiredMessage="Campo obrigatório"/>
                     </h:panelGrid>
                     <p/>
                     <p:outputPanel style="width: 100%; text-align: center">
-                        <p:commandButton value="Cancelar" action="#{ecdiseControle.fecharPopupNovo()}"
+                        <p:commandButton value="Cancelar" action="#{ecdiseReptiliaControle.fecharPopupNovo()}"
                                          update=":formPrincipal, :popupNovo" immediate="true"/>
-                        <p:commandButton value="Confirmar" action="#{ecdiseControle.inserir()}"
+                        <p:commandButton value="Confirmar" action="#{ecdiseReptiliaControle.inserir()}"
                                          update=":popupNovo, :formPrincipal"/>
                     </p:outputPanel>
                     <p:outputPanel style="width: 100%; text-align:center" >

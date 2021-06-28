@@ -3,6 +3,7 @@ package controle;
 
 import dao.DAO;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -23,7 +24,6 @@ public class MorfometriaAveControle implements Serializable {
     private DAO<Ave> dao;
     private boolean popupNovo;
     private MorfometriaAves morfometria;
-    private Animal animal;
     
     @PostConstruct
     public void inicializar(){         
@@ -82,13 +82,46 @@ public class MorfometriaAveControle implements Serializable {
         this.morfometria = morfometria;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.ave);
+        hash = 89 * hash + Objects.hashCode(this.dao);
+        hash = 89 * hash + (this.popupNovo ? 1 : 0);
+        hash = 89 * hash + Objects.hashCode(this.morfometria);
+        return hash;
     }
 
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MorfometriaAveControle other = (MorfometriaAveControle) obj;
+        if (this.popupNovo != other.popupNovo) {
+            return false;
+        }
+        if (!Objects.equals(this.ave, other.ave)) {
+            return false;
+        }
+        if (!Objects.equals(this.dao, other.dao)) {
+            return false;
+        }
+        if (!Objects.equals(this.morfometria, other.morfometria)) {
+            return false;
+        }
+        return true;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "MorfometriaAveControle{" + "ave=" + ave + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
+    }
+
 }
