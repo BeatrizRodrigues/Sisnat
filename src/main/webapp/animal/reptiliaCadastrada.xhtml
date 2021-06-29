@@ -28,9 +28,20 @@
             </h:form>
             <p/>
             <h:form>
+                <p:commandLink styleClass="link" value="Adicionar observação" 
+                               action="#{reptiliaCadastradaControle.observacao(animal)}"  />
+            </h:form>
+            <p/>
+            <h:form>
+                <p:commandLink styleClass="link" value="Adicionar atendimento" 
+                               action="#{reptiliaCadastradaControle.ficha(animal)}"  />
+            </h:form>
+            <p/>
+            <h:form>
                 <p:commandLink styleClass="link" value="Adicionar morfometria" 
                                action="#{reptiliaCadastradaControle.morfometria(reptilia)}"  />
             </h:form>
+            <p/>
         </ui:define>
     </ui:composition>
 </html>

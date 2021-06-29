@@ -27,9 +27,20 @@
             </h:form>
             <p/>
             <h:form>
+                <p:commandLink styleClass="link" value="Adicionar observação" 
+                               action="#{arachnidaCadastradaControle.observacao(animal)}"  />
+            </h:form>
+            <p/>
+            <h:form>
+                <p:commandLink styleClass="link" value="Adicionar atendimento" 
+                               action="#{arachnidaCadastradaControle.ficha(animal)}"  />
+            </h:form>
+            <p/>
+            <h:form>
                 <p:commandLink styleClass="link" value="Adicionar morfometria" 
                                action="#{arachnidaCadastradaControle.morfometria(arachnida)}"  />
             </h:form>
+            <p/>
         </ui:define>
     </ui:composition>
 </html>

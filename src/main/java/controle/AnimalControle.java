@@ -68,7 +68,7 @@ public class AnimalControle implements Serializable {
         }      
     }
     
-    public String alimentar(Animal animal){
+    /*public String alimentar(Animal animal){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
@@ -80,7 +80,7 @@ public class AnimalControle implements Serializable {
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
         return "/animal/fichaClinica";
-    }
+    }*/
     
     public String abreFicha(Animal animal){
         if (animal instanceof Reptilia){

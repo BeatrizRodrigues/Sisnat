@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controle;
 
 import dao.DAO;
@@ -9,13 +14,18 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import modelo.animal.Animal;
-import modelo.animal.FichaClinica;
+import modelo.animal.Observacao;
+
+/**
+ *
+ * @author beeat
+ */
 
 @ViewScoped
 @Named
-public class FichaClinicaControle implements Serializable{
+public class ObservacaoControle implements Serializable {
     private Animal animal;
-    private FichaClinica ficha;
+    private Observacao observacao;
     private boolean popupNovo;
     private DAO<Animal> dao;
     
@@ -25,11 +35,11 @@ public class FichaClinicaControle implements Serializable{
         ExternalContext ectx = context.getExternalContext();
         animal = (Animal) ectx.getSessionMap().get("animal");
         dao = new DAO(Animal.class);
-        ficha = new FichaClinica();
+        observacao = new Observacao();
     }
     
     public void abrePopupNovo() {
-        ficha = new FichaClinica();
+        observacao = new Observacao();
         this.popupNovo = true;
     }
     
@@ -38,10 +48,10 @@ public class FichaClinicaControle implements Serializable{
     }
     
     public void inserir(){
-        ficha.setAnimal(animal);
-        animal.getFichas().add(ficha);
+        observacao.setAnimal(animal);
+        animal.getObservacoes().add(observacao);
         dao.alterar(animal);
-        ficha = new FichaClinica();
+        observacao = new Observacao();
     }
 
     public Animal getAnimal() {
@@ -52,12 +62,12 @@ public class FichaClinicaControle implements Serializable{
         this.animal = animal;
     }
 
-    public FichaClinica getFicha() {
-        return ficha;
+    public Observacao getObservacao() {
+        return observacao;
     }
 
-    public void setFicha(FichaClinica ficha) {
-        this.ficha = ficha;
+    public void setObservacao(Observacao observacao) {
+        this.observacao = observacao;
     }
 
     public boolean isPopupNovo() {
@@ -78,11 +88,11 @@ public class FichaClinicaControle implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.animal);
-        hash = 31 * hash + Objects.hashCode(this.ficha);
-        hash = 31 * hash + (this.popupNovo ? 1 : 0);
-        hash = 31 * hash + Objects.hashCode(this.dao);
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.animal);
+        hash = 79 * hash + Objects.hashCode(this.observacao);
+        hash = 79 * hash + (this.popupNovo ? 1 : 0);
+        hash = 79 * hash + Objects.hashCode(this.dao);
         return hash;
     }
 
@@ -97,14 +107,14 @@ public class FichaClinicaControle implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final FichaClinicaControle other = (FichaClinicaControle) obj;
+        final ObservacaoControle other = (ObservacaoControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
         if (!Objects.equals(this.animal, other.animal)) {
             return false;
         }
-        if (!Objects.equals(this.ficha, other.ficha)) {
+        if (!Objects.equals(this.observacao, other.observacao)) {
             return false;
         }
         if (!Objects.equals(this.dao, other.dao)) {
@@ -112,10 +122,12 @@ public class FichaClinicaControle implements Serializable{
         }
         return true;
     }
+    
+    
 
     @Override
     public String toString() {
-        return "FichaClinicaControle{" + "animal=" + animal + ", ficha=" + ficha + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
+        return "ObservacaoControle{" + "animal=" + animal + ", observacao=" + observacao + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
     }
     
     

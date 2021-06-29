@@ -35,6 +35,20 @@ public class ReptiliaCadastradaControle implements Serializable{
         return "/animal/alimentacao";
     }
     
+    public String observacao(Animal animal){
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ectx = context.getExternalContext();
+        ectx.getSessionMap().put("animal", animal);
+        return "/animal/observacao";
+    }
+    
+    public String ficha (Animal animal){
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ectx = context.getExternalContext();
+        ectx.getSessionMap().put("animal", animal);
+        return "/animal/fichaClinica";
+    }
+    
     public String ecdise(Reptilia reptilia){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();

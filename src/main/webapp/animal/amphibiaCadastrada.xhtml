@@ -16,6 +16,7 @@
             <p/>
             <h:form>
                 <h:outputText value="#{amphibiaCadastradaControle.animal.grupo}"/>
+                                
             </h:form>
             <p/>
             <h:form>
@@ -27,10 +28,22 @@
                 <p:commandLink styleClass="link" value="Adicionar alimentacao" 
                                action="#{amphibiaCadastradaControle.alimentar(animal)}"  />
             </h:form>
+            <p/> 
+            <h:form>
+                <p:commandLink styleClass="link" value="Adicionar observação" 
+                               action="#{amphibiaCadastradaControle.observacao(animal)}"  />
+            </h:form>
+            <p/> 
+            <h:form>
+                <p:commandLink styleClass="link" value="Adicionar atendimento" 
+                               action="#{amphibiaCadastradaControle.ficha(animal)}"  />
+            </h:form>
+            <p/> 
             <h:form>
                 <p:commandLink styleClass="link" value="Adicionar ecdise" 
                                action="#{amphibiaCadastradaControle.ecdise(amphibia)}"  />
             </h:form>
+            <p/> 
         </ui:define>
     </ui:composition>
 </html>

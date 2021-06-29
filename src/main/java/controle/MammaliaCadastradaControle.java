@@ -40,6 +40,20 @@ public class MammaliaCadastradaControle implements Serializable{
         return "/animal/alimentacao";
     }
     
+    public String observacao(Animal animal){
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ectx = context.getExternalContext();
+        ectx.getSessionMap().put("animal", animal);
+        return "/animal/observacao";
+    }
+    
+    public String ficha (Animal animal){
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ectx = context.getExternalContext();
+        ectx.getSessionMap().put("animal", animal);
+        return "/animal/fichaClinica";
+    }
+    
     public String morfometria(Mammalia mammalia){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();

@@ -101,8 +101,6 @@ public class Animal implements Serializable{
     @OneToMany(mappedBy = "animal", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Observacao> observacoes;
     
-    /*@OneToMany(mappedBy = "animal", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ecdise> ecdise;*/
    
     public Animal(){
         id = 0;
@@ -127,7 +125,6 @@ public class Animal implements Serializable{
         fichas = new ArrayList();
         alimentacoes = new ArrayList();
         observacoes = new ArrayList();
-        //ecdise = new ArrayList();
         soltura = false;
     }
     

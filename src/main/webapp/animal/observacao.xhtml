@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+          
+     <ui:composition template="/template.xhtml">
+         <ui:define name="body">
+             <h:form >
+                <h:panelGrid style=" width:100%; text-align: right"  >                 
+                    <p:commandLink styleClass="link" value="voltar" action="/animal"  />                                  
+                </h:panelGrid>
+            </h:form>
+             <p/>
+             <h:form>
+                <p:commandLink styleClass="link" value="Adicionar observação" 
+                               action="#{observacaoControle.abrePopupNovo()}" 
+                               update=":popupNovo" />
+            </h:form>
+            <p/>
+            <h:form id="formPrincipal">
+                <p:dataTable var="ecdise" value="#{observacaoControle.animal.observacoes}"
+                             tableStyle="widt:auto; min-width: 100%" emptyMessage="Nenhuma observação">
+                    <p:column headerText="Data:">
+                        <h:outputText value="#{observacaoControle.observacao.dataObs}"> 
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Observações:">
+                        <h:outputText value="#{observacaoControle.observacao.observacao}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:outputPanel style="width: 100%; text-align:center" layout="block"> 
+                        <p:commandButton value="sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:outputPanel>
+                </p:confirmDialog> 
+            </h:form>
+            
+            <p:dialog closable="false" modal="true" header="Nova observação"
+                      id="popupNovo" visible="#{observacaoControle.popupNovo}">
+                <h:form id="formPopupNovo">
+                    <h:panelGrid columns="2">
+                        <p:outputLabel value="Data "/>
+                        <p:calendar id="button" value="#{observacaoControle.observacao.dataObs}"
+                                    showOn="button" pattern="dd/MM/yyyy" mask="true"/>
+                        <p:outputLabel value="Observação"/>
+                        <p:inputText value="#{observacaoControle.observacao.observacao}" maxlength="50"
+                                     required="true" requiredMessage="Campo obrigatório"/>
+                    </h:panelGrid>
+                    <p/>
+                    <p:outputPanel style="width: 100%; text-align: center">
+                        <p:commandButton value="Cancelar" action="#{observacaoControle.fecharPopupNovo()}"
+                                         update=":formPrincipal, :popupNovo" immediate="true"/>
+                        <p:commandButton value="Confirmar" action="#{observacaoControle.inserir()}"
+                                         update=":popupNovo, :formPrincipal"/>
+                    </p:outputPanel>
+                    <p:outputPanel style="width: 100%; text-align:center" >
+                        <p:messages showIcon="false" />
+                    </p:outputPanel> 
+                </h:form>            
+            </p:dialog>            
+             
+         </ui:define>
+    </ui:composition>
+</html>
+

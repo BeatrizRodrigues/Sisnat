@@ -23,9 +23,20 @@
             </h:form>
             <p/>
             <h:form>
+                <p:commandLink styleClass="link" value="Adicionar observação" 
+                               action="#{aveCadastradaControle.observacao(animal)}"  />
+            </h:form>
+            <p/>
+            <h:form>
+                <p:commandLink styleClass="link" value="Adicionar etendimento" 
+                               action="#{aveCadastradaControle.ficha(animal)}"  />
+            </h:form>
+            <p/>
+            <h:form>
                 <p:commandLink styleClass="link" value="Adicionar morfometria" 
                                action="#{aveCadastradaControle.morfometria(ave)}"  />
             </h:form>
+            <p/>
         </ui:define>
     </ui:composition>
 </html>

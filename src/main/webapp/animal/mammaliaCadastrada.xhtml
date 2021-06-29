@@ -16,18 +16,27 @@
             <h:form>
                 <h:outputText value="#{mammaliaCadastradaControle.animal.grupo}"/>
             </h:form>
-            
-                                    
+            <p/>                                    
             <h:form>
                 <p:commandLink styleClass="link" value="Adicionar alimentacao" 
                                action="#{mammaliaCadastradaControle.alimentar(animal)}"  />
             </h:form>
-            
+            <p/>
+            <h:form>
+                <p:commandLink styleClass="link" value="Adicionar observação" 
+                               action="#{mammaliaCadastradaControle.observacao(animal)}"  />
+            </h:form>
+            <p/>
+            <h:form>
+                <p:commandLink styleClass="link" value="Adicionar atendimento" 
+                               action="#{mammaliaCadastradaControle.ficha(animal)}"  />
+            </h:form>
+            <p/>
             <h:form>
                 <p:commandLink styleClass="link" value="Adicionar morfometria" 
                                action="#{mammaliaCadastradaControle.morfometria(mammalia)}"  />
             </h:form>
-            
+            <p/>
         </ui:define>
     </ui:composition>
 </html>
