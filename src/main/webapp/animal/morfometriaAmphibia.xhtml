@@ -24,39 +24,39 @@
             </h:form> 
             <p/>
             <h:form id="formPrincipal">
-                <p:dataTable var="Morfometria" value="#{morfometriaAmphibiaControle.amphibia.morfometria}"
+                <p:dataTable var="morfometria" value="#{morfometriaAmphibiaControle.amphibia.morfometria}"
                              tableStyle="widt:auto; min-width: 100%" emptyMessage="Nenhuma morfometria cadastrada">
                     <p:column headerText="Data da morfometria:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cc}"> 
+                        <h:outputText value="#{morfometria.dataMedicao}"> 
                             <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>
                     </p:column>
                     <p:column headerText="Peso:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.peso}"/>
+                        <h:outputText value="#{morfometria.peso}"/>
                     </p:column>
                     <p:column headerText="C.R.C.:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.crc}"/>
+                        <h:outputText value="#{morfometria.crc}"/>
                     </p:column>
                     <p:column headerText="C.C:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cc}"/>
+                        <h:outputText value="#{morfometria.cc}"/>
                     </p:column>
                     <p:column headerText="D.O.N.:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.don}"/>
+                        <h:outputText value="#{morfometria.don}"/>
                     </p:column>
                     <p:column headerText="C.F.:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cf}"/>
+                        <h:outputText value="#{morfometria.cf}"/>
                     </p:column>
                     <p:column headerText="C.T.:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.ct}"/>
+                        <h:outputText value="#{morfometria.ct}"/>
                     </p:column>
                     <p:column headerText="C.T.A.:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cta}"/>
+                        <h:outputText value="#{morfometria.cta}"/>
                     </p:column>
                     <p:column headerText="C.P.:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.cp}"/>
+                        <h:outputText value="#{morfometria.cp}"/>
                     </p:column>
                     <p:column headerText="Obs.:">
-                        <h:outputText value="#{morfometriaAmphibiaControle.morfometria.observacao}"/>
+                        <h:outputText value="#{morfometria.observacao}"/>
                     </p:column>
                     
                 </p:dataTable>

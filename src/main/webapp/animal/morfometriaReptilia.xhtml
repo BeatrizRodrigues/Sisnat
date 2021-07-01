@@ -30,7 +30,7 @@
             </h:form> 
             <p/>
             <h:form id="formPrincipal">
-                <p:dataTable var="Morfometria" value="#{morfometriaReptiliaControle.reptilia.morfometrias}"
+                <p:dataTable var="morfometria" value="#{morfometriaReptiliaControle.reptilia.morfometrias}"
                              tableStyle="widt:auto; min-width: 100%" emptyMessage="Nenhuma morfometria cadastrada">
                     <p:column headerText="Data da morfometria:">
                         <h:outputText value="#{morfometriaReptiliaControle.morfometria.peso}"> 
@@ -38,13 +38,13 @@
                         </h:outputText>
                     </p:column>
                     <p:column headerText="Peso:">
-                        <h:outputText value="#{morfometriaReptiliaControle.morfometria.peso}"/>
+                        <h:outputText value="#{morfometria.peso}"/>
                     </p:column>
                     <p:column headerText="C.R.C.:">
-                        <h:outputText value="#{morfometriaReptiliaControle.morfometria.crc}"/>
+                        <h:outputText value="#{morfometria.crc}"/>
                     </p:column>
                     <p:column headerText="Obs.:">
-                        <h:outputText value="#{morfometriaReptiliaControle.morfometria.observacao}"/>
+                        <h:outputText value="#{morfometria.observacao}"/>
                     </p:column>
                                         
                 </p:dataTable>

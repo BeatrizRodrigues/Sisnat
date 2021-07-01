@@ -30,27 +30,27 @@
             </h:form> 
             <p/>
             <h:form id="formPrincipal">
-                <p:dataTable var="Morfometria" value="#{morfometriaArachnidaControle.arachnida.morfometria}"
+                <p:dataTable var="morfometria" value="#{morfometriaArachnidaControle.arachnida.morfometria}"
                              tableStyle="widt:auto; min-width: 100%" emptyMessage="Nenhuma morfometria cadastrada">
                     <p:column headerText="Data da morfometria:">
-                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.dataMedicao}"> 
+                        <h:outputText value="#{morfometria.dataMedicao}"> 
                             <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>
                     </p:column>
                     <p:column headerText="Peso:">
-                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.peso}"/>
+                        <h:outputText value="#{morfometria.peso}"/>
                     </p:column>
                     <p:column headerText="C.C:">
-                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.cc}"/>
+                        <h:outputText value="#{morfometria.cc}"/>
                     </p:column>
                     <p:column headerText="C.P.:">
-                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.cp}"/>
+                        <h:outputText value="#{morfometria.cp}"/>
                     </p:column>
                     <p:column headerText="C.P.P.:">
-                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.cpp}"/>
+                        <h:outputText value="#{morfometria.cpp}"/>
                     </p:column>
                     <p:column headerText="Obs.:">
-                        <h:outputText value="#{morfometriaArachnidaControle.morfometria.observacao}"/>
+                        <h:outputText value="#{morfometria.observacao}"/>
                     </p:column>
                     
                 </p:dataTable>
