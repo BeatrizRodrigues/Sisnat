@@ -150,14 +150,6 @@ public class MorfometriaMammalia implements Serializable{
         int hash = 5;
         hash = 29 * hash + Objects.hashCode(this.id);
         hash = 29 * hash + Objects.hashCode(this.dataMedicao);
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.peso) ^ (Double.doubleToLongBits(this.peso) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.cra) ^ (Double.doubleToLongBits(this.cra) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.cc) ^ (Double.doubleToLongBits(this.cc) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.cm) ^ (Double.doubleToLongBits(this.cm) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.cp) ^ (Double.doubleToLongBits(this.cp) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.ho) ^ (Double.doubleToLongBits(this.ho) >>> 32));
-        hash = 29 * hash + Objects.hashCode(this.observacao);
-        hash = 29 * hash + Objects.hashCode(this.mamalia);
         return hash;
     }
 
@@ -173,34 +165,11 @@ public class MorfometriaMammalia implements Serializable{
             return false;
         }
         final MorfometriaMammalia other = (MorfometriaMammalia) obj;
-        if (Double.doubleToLongBits(this.peso) != Double.doubleToLongBits(other.peso)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cra) != Double.doubleToLongBits(other.cra)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cc) != Double.doubleToLongBits(other.cc)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cm) != Double.doubleToLongBits(other.cm)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cp) != Double.doubleToLongBits(other.cp)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.ho) != Double.doubleToLongBits(other.ho)) {
-            return false;
-        }
-        if (!Objects.equals(this.observacao, other.observacao)) {
-            return false;
-        }
+        
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.dataMedicao, other.dataMedicao)) {
-            return false;
-        }
-        if (!Objects.equals(this.mamalia, other.mamalia)) {
             return false;
         }
         return true;
@@ -208,7 +177,7 @@ public class MorfometriaMammalia implements Serializable{
 
     @Override
     public String toString() {
-        return "MorfometriaMamalia{" + "id=" + id + ", dataMedicao=" + dataMedicao + ", peso=" + peso + ", cra=" + cra + ", cc=" + cc + ", cm=" + cm + ", cp=" + cp + ", ho=" + ho + ", observacao=" + observacao + ", mamalia=" + mamalia + '}';
+        return "MorfometriaMamalia{" + "id=" + id + ", dataMedicao=" + dataMedicao +  '}';
     }
     
     

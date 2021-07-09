@@ -174,16 +174,6 @@ public class MorfometriaAmphibia implements Serializable{
         int hash = 3;
         hash = 89 * hash + Objects.hashCode(this.id);
         hash = 89 * hash + Objects.hashCode(this.dataMedicao);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.peso) ^ (Double.doubleToLongBits(this.peso) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.crc) ^ (Double.doubleToLongBits(this.crc) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.cc) ^ (Double.doubleToLongBits(this.cc) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.don) ^ (Double.doubleToLongBits(this.don) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.cf) ^ (Double.doubleToLongBits(this.cf) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.ct) ^ (Double.doubleToLongBits(this.ct) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.cta) ^ (Double.doubleToLongBits(this.cta) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.cp) ^ (Double.doubleToLongBits(this.cp) >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.observacao);
-        hash = 89 * hash + Objects.hashCode(this.amphibia);
         return hash;
     }
 
@@ -199,40 +189,11 @@ public class MorfometriaAmphibia implements Serializable{
             return false;
         }
         final MorfometriaAmphibia other = (MorfometriaAmphibia) obj;
-        if (Double.doubleToLongBits(this.peso) != Double.doubleToLongBits(other.peso)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.crc) != Double.doubleToLongBits(other.crc)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cc) != Double.doubleToLongBits(other.cc)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.don) != Double.doubleToLongBits(other.don)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cf) != Double.doubleToLongBits(other.cf)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.ct) != Double.doubleToLongBits(other.ct)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cta) != Double.doubleToLongBits(other.cta)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cp) != Double.doubleToLongBits(other.cp)) {
-            return false;
-        }
-        if (!Objects.equals(this.observacao, other.observacao)) {
-            return false;
-        }
+   
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.dataMedicao, other.dataMedicao)) {
-            return false;
-        }
-        if (!Objects.equals(this.amphibia, other.amphibia)) {
             return false;
         }
         return true;
@@ -240,7 +201,7 @@ public class MorfometriaAmphibia implements Serializable{
 
     @Override
     public String toString() {
-        return "MorfometriaAmphibia{" + "id=" + id + ", dataMedicao=" + dataMedicao + ", peso=" + peso + ", crc=" + crc + ", cc=" + cc + ", don=" + don + ", cf=" + cf + ", ct=" + ct + ", cta=" + cta + ", cp=" + cp + ", observacao=" + observacao + ", amphibia=" + amphibia + '}';
+        return "MorfometriaAmphibia{" + "id=" + id + ", dataMedicao=" + dataMedicao + '}';
     }
     
     

@@ -102,10 +102,6 @@ public class MorfometriaReptilia implements Serializable {
         int hash = 3;
         hash = 17 * hash + Objects.hashCode(this.id);
         hash = 17 * hash + Objects.hashCode(this.dataMedicao);
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.peso) ^ (Double.doubleToLongBits(this.peso) >>> 32));
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.crc) ^ (Double.doubleToLongBits(this.crc) >>> 32));
-        hash = 17 * hash + Objects.hashCode(this.observacao);
-        hash = 17 * hash + Objects.hashCode(this.reptilia);
         return hash;
     }
 
@@ -121,22 +117,11 @@ public class MorfometriaReptilia implements Serializable {
             return false;
         }
         final MorfometriaReptilia other = (MorfometriaReptilia) obj;
-        if (Double.doubleToLongBits(this.peso) != Double.doubleToLongBits(other.peso)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.crc) != Double.doubleToLongBits(other.crc)) {
-            return false;
-        }
-        if (!Objects.equals(this.observacao, other.observacao)) {
-            return false;
-        }
+       
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.dataMedicao, other.dataMedicao)) {
-            return false;
-        }
-        if (!Objects.equals(this.reptilia, other.reptilia)) {
             return false;
         }
         return true;
@@ -144,7 +129,7 @@ public class MorfometriaReptilia implements Serializable {
 
     @Override
     public String toString() {
-        return "MorfometriaReptilia{" + "id=" + id + ", dataMedicao=" + dataMedicao + ", peso=" + peso + ", crc=" + crc + ", observacao=" + observacao + ", reptilia=" + reptilia + '}';
+        return "MorfometriaReptilia{" + "id=" + id + ", dataMedicao=" + dataMedicao + '}';
     }
     
 }

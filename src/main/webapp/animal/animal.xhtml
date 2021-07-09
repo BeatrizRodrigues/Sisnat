@@ -22,7 +22,7 @@
             <h:form id="formPrincipal" >
                 <p:dataTable var="animal" value="#{animalControle.lista}"
                              tableStyle="width:auto;  min-width: 100%" > 
-                    <p:column headerText="Id">
+                    <p:column headerText="Id" sortBy="#{animal.id}">
                         <p:commandLink styleClass="link" value="#{animal.id}" action="#{animalControle.abreFicha(animal)}" />
                     </p:column>
                     <p:column headerText="Animais:">

@@ -150,14 +150,6 @@ public class MorfometriaAves implements Serializable {
         int hash = 3;
         hash = 79 * hash + Objects.hashCode(this.id);
         hash = 79 * hash + Objects.hashCode(this.dataMedicao);
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.peso) ^ (Double.doubleToLongBits(this.peso) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.cb) ^ (Double.doubleToLongBits(this.cb) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.h) ^ (Double.doubleToLongBits(this.h) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.cc) ^ (Double.doubleToLongBits(this.cc) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.ca) ^ (Double.doubleToLongBits(this.ca) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.ct) ^ (Double.doubleToLongBits(this.ct) >>> 32));
-        hash = 79 * hash + Objects.hashCode(this.observacao);
-        hash = 79 * hash + Objects.hashCode(this.aves);
         return hash;
     }
 
@@ -173,34 +165,11 @@ public class MorfometriaAves implements Serializable {
             return false;
         }
         final MorfometriaAves other = (MorfometriaAves) obj;
-        if (Double.doubleToLongBits(this.peso) != Double.doubleToLongBits(other.peso)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cb) != Double.doubleToLongBits(other.cb)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.h) != Double.doubleToLongBits(other.h)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cc) != Double.doubleToLongBits(other.cc)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.ca) != Double.doubleToLongBits(other.ca)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.ct) != Double.doubleToLongBits(other.ct)) {
-            return false;
-        }
-        if (!Objects.equals(this.observacao, other.observacao)) {
-            return false;
-        }
+      
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.dataMedicao, other.dataMedicao)) {
-            return false;
-        }
-        if (!Objects.equals(this.aves, other.aves)) {
             return false;
         }
         return true;
@@ -208,7 +177,7 @@ public class MorfometriaAves implements Serializable {
 
     @Override
     public String toString() {
-        return "MorfometriaAves{" + "id=" + id + ", dataMedicao=" + dataMedicao + ", peso=" + peso + ", cb=" + cb + ", h=" + h + ", cc=" + cc + ", ca=" + ca + ", ct=" + ct + ", observacao=" + observacao + ", aves=" + aves + '}';
+        return "MorfometriaAves{" + "id=" + id + ", dataMedicao=" + dataMedicao +  '}';
     }
     
     

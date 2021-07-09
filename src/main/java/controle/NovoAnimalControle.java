@@ -32,6 +32,7 @@ public class NovoAnimalControle implements Serializable {
     private DAONome daoNome;
     private List<Nome> nomes; 
     private List<String> nomesCientificos; 
+    private Boolean habilitaDoador;
     
     
     @PostConstruct
@@ -40,6 +41,7 @@ public class NovoAnimalControle implements Serializable {
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         grupo = (String) ectx.getSessionMap().get("grupo");
+        habilitaDoador = false;
         
         if(grupo.equals("Reptilia")){
             novoAnimal = new Reptilia(); 
@@ -68,6 +70,14 @@ public class NovoAnimalControle implements Serializable {
             nomesCientificos.add(n.getNomeCientifico());
         });
         Collections.sort(nomesCientificos);
+    }
+    
+    public void habilitarDoador(){
+        if(novoAnimal.getProcedencia().equals("Entrega voluntária")){
+            habilitaDoador = true;
+        }else{
+            habilitaDoador = false;
+        }
     }
     
     public void atualizarNomePopular(){
@@ -108,9 +118,15 @@ public class NovoAnimalControle implements Serializable {
         
         return "animal?faces-redirect=true";
     }
-    
-    
 
+    public Boolean getHabilitaDoador() {
+        return habilitaDoador;
+    }
+
+    public void setHabilitaDoador(Boolean habilitaDoador) {
+        this.habilitaDoador = habilitaDoador;
+    }   
+    
     public String getGrupo() {
         return grupo;
     }

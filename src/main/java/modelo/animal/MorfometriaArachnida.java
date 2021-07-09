@@ -126,12 +126,6 @@ public class MorfometriaArachnida implements Serializable {
         int hash = 5;
         hash = 29 * hash + Objects.hashCode(this.id);
         hash = 29 * hash + Objects.hashCode(this.dataMedicao);
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.peso) ^ (Double.doubleToLongBits(this.peso) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.cc) ^ (Double.doubleToLongBits(this.cc) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.cp) ^ (Double.doubleToLongBits(this.cp) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.cpp) ^ (Double.doubleToLongBits(this.cpp) >>> 32));
-        hash = 29 * hash + Objects.hashCode(this.observacao);
-        hash = 29 * hash + Objects.hashCode(this.arachnida);
         return hash;
     }
 
@@ -147,28 +141,11 @@ public class MorfometriaArachnida implements Serializable {
             return false;
         }
         final MorfometriaArachnida other = (MorfometriaArachnida) obj;
-        if (Double.doubleToLongBits(this.peso) != Double.doubleToLongBits(other.peso)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cc) != Double.doubleToLongBits(other.cc)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cp) != Double.doubleToLongBits(other.cp)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cpp) != Double.doubleToLongBits(other.cpp)) {
-            return false;
-        }
-        if (!Objects.equals(this.observacao, other.observacao)) {
-            return false;
-        }
+        
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.dataMedicao, other.dataMedicao)) {
-            return false;
-        }
-        if (!Objects.equals(this.arachnida, other.arachnida)) {
             return false;
         }
         return true;
@@ -176,7 +153,7 @@ public class MorfometriaArachnida implements Serializable {
 
     @Override
     public String toString() {
-        return "MorfometriaArachnida{" + "id=" + id + ", dataMedicao=" + dataMedicao + ", peso=" + peso + ", cc=" + cc + ", cp=" + cp + ", cpp=" + cpp + ", observacao=" + observacao + ", arachnida=" + arachnida + '}';
+        return "MorfometriaArachnida{" + "id=" + id + ", dataMedicao=" + dataMedicao + '}';
     }
     
     

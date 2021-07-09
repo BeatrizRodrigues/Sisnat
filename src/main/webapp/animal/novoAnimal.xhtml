@@ -50,6 +50,7 @@
                             <f:selectItem itemLabel="Nascimento no IPEVS" itemValue="Nascimento no IPEVS"/>
                             <f:selectItem itemLabel="Recebimento" itemValue="Recebimento"/>
                             <f:selectItem itemLabel="Resgate" itemValue="Resgate"/>
+                            <p:ajax listener="#{novoAnimalControle.habilitarDoador()}" update="campoDoador"></p:ajax>
                         </p:selectOneRadio>
                         <p:outputLabel value="Motivo: "/>                       
                         <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.motivo}" unselectable="true">
@@ -77,7 +78,7 @@
                         <p:inputText value="#{novoAnimalControle.novoAnimal.areaDoResgate}"
                                      maxlength="30" />
                         <p:outputLabel value="Nome do doador: "/>
-                        <p:inputText value="#{novoAnimalControle.novoAnimal.nomeDoador}"
+                        <p:inputText id="campoDoador" disabled="#{!novoAnimalControle.habilitaDoador}" value="#{novoAnimalControle.novoAnimal.nomeDoador}"
                                      maxlength="50" />                        
                         <p:outputLabel value="Telefone: "/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.telefone}"
