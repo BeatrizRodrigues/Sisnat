@@ -1,4 +1,9 @@
-package controle;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -8,7 +13,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import modelo.animal.Animal;
-import modelo.animal.Reptilia;
+import modelo.animal.Mammalia;
 
 /**
  *
@@ -16,7 +21,7 @@ import modelo.animal.Reptilia;
  */
 @ViewScoped
 @Named
-public class ReptiliaCadastradaControle implements Serializable{
+public class MammaliaCadastradaControle implements Serializable{
     private Animal animal;
     private DAO<Animal> dao;
         
@@ -49,18 +54,11 @@ public class ReptiliaCadastradaControle implements Serializable{
         return "/animal/fichaClinica";
     }
     
-    public String ecdise(Reptilia reptilia){
+    public String morfometria(Mammalia mammalia){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
-        return "/animal/ecdiseReptilia";
-    }
-    
-    public String morfometria(Reptilia reptilia){
-        FacesContext context = FacesContext.getCurrentInstance();
-        ExternalContext ectx = context.getExternalContext();
-        ectx.getSessionMap().put("animal", animal);
-        return "/animal/morfometriaReptilia";
+        return "/animal/morfometriaMammalia";
     }
 
     public Animal getAnimal() {

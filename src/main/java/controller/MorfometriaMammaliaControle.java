@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -8,9 +8,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Animal;
-import modelo.animal.Arachnida;
-import modelo.animal.MorfometriaArachnida;
+import modelo.animal.Mammalia;
+import modelo.animal.MorfometriaMammalia;
 
 /**
  *
@@ -18,23 +17,23 @@ import modelo.animal.MorfometriaArachnida;
  */
 @ViewScoped
 @Named
-public class MorfometriaArachnidaControle implements Serializable{
-    private Arachnida arachnida;
-    private DAO<Arachnida> dao;
+public class MorfometriaMammaliaControle implements Serializable {
+    private Mammalia mammalia;
+    private DAO<Mammalia> dao;
     private boolean popupNovo;
-    private MorfometriaArachnida morfometria;
+    private MorfometriaMammalia morfometria;
     
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        arachnida = (Arachnida) ectx.getSessionMap().get("animal");
-        dao = new DAO(Arachnida.class);
-        morfometria = new MorfometriaArachnida();
+        mammalia = (Mammalia) ectx.getSessionMap().get("animal");
+        dao = new DAO(Mammalia.class);
+        morfometria = new MorfometriaMammalia();
     }
     
     public void abrePopupNovo() {
-        morfometria = new MorfometriaArachnida();
+        morfometria = new MorfometriaMammalia();
         this.popupNovo = true;
     }
     
@@ -43,25 +42,25 @@ public class MorfometriaArachnidaControle implements Serializable{
     }
     
     public void inserir() {
-        morfometria.setArachnida(arachnida);
-        arachnida.getMorfometria().add(morfometria);
-        dao.alterar(arachnida);
-        morfometria = new MorfometriaArachnida();
+        morfometria.setMamalia(mammalia);
+        mammalia.getMorfometria().add(morfometria);
+        dao.alterar(mammalia);
+        morfometria = new MorfometriaMammalia();
     }
 
-    public Arachnida getArachnida() {
-        return arachnida;
+    public Mammalia getMammalia() {
+        return mammalia;
     }
 
-    public void setArachnida(Arachnida arachnida) {
-        this.arachnida = arachnida;
+    public void setMammalia(Mammalia mammalia) {
+        this.mammalia = mammalia;
     }
 
-    public DAO<Arachnida> getDao() {
+    public DAO<Mammalia> getDao() {
         return dao;
     }
 
-    public void setDao(DAO<Arachnida> dao) {
+    public void setDao(DAO<Mammalia> dao) {
         this.dao = dao;
     }
 
@@ -73,21 +72,21 @@ public class MorfometriaArachnidaControle implements Serializable{
         this.popupNovo = popupNovo;
     }
 
-    public MorfometriaArachnida getMorfometria() {
+    public MorfometriaMammalia getMorfometria() {
         return morfometria;
     }
 
-    public void setMorfometria(MorfometriaArachnida morfometria) {
+    public void setMorfometria(MorfometriaMammalia morfometria) {
         this.morfometria = morfometria;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.arachnida);
-        hash = 67 * hash + Objects.hashCode(this.dao);
-        hash = 67 * hash + (this.popupNovo ? 1 : 0);
-        hash = 67 * hash + Objects.hashCode(this.morfometria);
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.mammalia);
+        hash = 79 * hash + Objects.hashCode(this.dao);
+        hash = 79 * hash + (this.popupNovo ? 1 : 0);
+        hash = 79 * hash + Objects.hashCode(this.morfometria);
         return hash;
     }
 
@@ -102,11 +101,11 @@ public class MorfometriaArachnidaControle implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MorfometriaArachnidaControle other = (MorfometriaArachnidaControle) obj;
+        final MorfometriaMammaliaControle other = (MorfometriaMammaliaControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
-        if (!Objects.equals(this.arachnida, other.arachnida)) {
+        if (!Objects.equals(this.mammalia, other.mammalia)) {
             return false;
         }
         if (!Objects.equals(this.dao, other.dao)) {
@@ -120,7 +119,7 @@ public class MorfometriaArachnidaControle implements Serializable{
 
     @Override
     public String toString() {
-        return "MorfometriaArachnidaControle{" + "arachnida=" + arachnida + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
+        return "MorfometriaMammaliaControle{" + "mammalia=" + mammalia + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
     }
-  
+    
 }

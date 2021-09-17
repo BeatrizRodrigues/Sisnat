@@ -33,14 +33,14 @@ public class DAOTest {
 
     /*@Test
     public void testeInserirAdm() {
-        Administrador adm = new Administrador();
-        adm.setLogin("BIA");
-        adm.setNome("Beatriz");
-        adm.setSenha("123");
-        adm.setCargo("Administrador");
-        
-        DAO <Administrador> d = new DAO(Administrador.class);
-        d.inserir(adm);
+    Administrador adm = new Administrador();
+    adm.setLogin("BIA");
+    adm.setNome("Beatriz");
+    adm.setSenha("123");
+    adm.setCargo("Administrador");
+    
+    DAO <Administrador> d = new DAO(Administrador.class);
+    d.inserir(adm);
     }*/
     
     

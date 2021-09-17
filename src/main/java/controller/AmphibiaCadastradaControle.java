@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -7,8 +7,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import modelo.animal.Amphibia;
 import modelo.animal.Animal;
-import modelo.animal.Ave;
 
 /**
  *
@@ -16,10 +16,10 @@ import modelo.animal.Ave;
  */
 @ViewScoped
 @Named
-public class AveCadastradaControle implements Serializable{
+public class AmphibiaCadastradaControle implements Serializable{
     private Animal animal;
-    private DAO<Animal> dao;
-        
+    private DAO<Amphibia> dao;
+       
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
@@ -49,13 +49,20 @@ public class AveCadastradaControle implements Serializable{
         return "/animal/fichaClinica";
     }
     
-    public String morfometria(Ave ave){
+    public String ecdise(Amphibia amphibia){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
-        return "/animal/morfometriaAve";
+        return "/animal/ecdiseAmphibia";
     }
-
+    
+    public String morfometria(Amphibia amphibia){
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ectx = context.getExternalContext();
+        ectx.getSessionMap().put("animal", animal);
+        return "/animal/morfometriaAmphibia";
+    }
+    
     public Animal getAnimal() {
         return animal;
     }
@@ -64,11 +71,15 @@ public class AveCadastradaControle implements Serializable{
         this.animal = animal;
     }
 
-    public DAO<Animal> getDao() {
+    public DAO<Amphibia> getDao() {
         return dao;
     }
 
-    public void setDao(DAO<Animal> dao) {
+    public void setDao(DAO<Amphibia> dao) {
         this.dao = dao;
     }
+    
+        
+    
+    
 }

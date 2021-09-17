@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -8,32 +8,28 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Arachnida;
-import modelo.animal.EcdiseArachnida;
+import modelo.animal.Animal;
+import modelo.animal.FichaClinica;
 
-/**
- *
- * @author beeat
- */
 @ViewScoped
 @Named
-public class EcdiseArachnidaControle implements Serializable{
-    private Arachnida arachnida;
-    private EcdiseArachnida ecdise;
+public class FichaClinicaControle implements Serializable{
+    private Animal animal;
+    private FichaClinica ficha;
     private boolean popupNovo;
-    private DAO<Arachnida> dao;
+    private DAO<Animal> dao;
     
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        arachnida = (Arachnida) ectx.getSessionMap().get("animal");
-        dao = new DAO(Arachnida.class);
-        ecdise = new EcdiseArachnida();
+        animal = (Animal) ectx.getSessionMap().get("animal");
+        dao = new DAO(Animal.class);
+        ficha = new FichaClinica();
     }
     
     public void abrePopupNovo() {
-        ecdise = new EcdiseArachnida();
+        ficha = new FichaClinica();
         this.popupNovo = true;
     }
     
@@ -41,27 +37,27 @@ public class EcdiseArachnidaControle implements Serializable{
         this.popupNovo = false;
     }
     
-    public void inserir() {
-        ecdise.setArachnida(arachnida);
-        arachnida.getEcdises().add(ecdise);
-        dao.alterar(arachnida);
-        ecdise = new EcdiseArachnida();
+    public void inserir(){
+        ficha.setAnimal(animal);
+        animal.getFichas().add(ficha);
+        dao.alterar(animal);
+        ficha = new FichaClinica();
     }
 
-    public Arachnida getArachnida() {
-        return arachnida;
+    public Animal getAnimal() {
+        return animal;
     }
 
-    public void setArachnida(Arachnida arachnida) {
-        this.arachnida = arachnida;
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
     }
 
-    public EcdiseArachnida getEcdise() {
-        return ecdise;
+    public FichaClinica getFicha() {
+        return ficha;
     }
 
-    public void setEcdise(EcdiseArachnida ecdise) {
-        this.ecdise = ecdise;
+    public void setFicha(FichaClinica ficha) {
+        this.ficha = ficha;
     }
 
     public boolean isPopupNovo() {
@@ -72,21 +68,21 @@ public class EcdiseArachnidaControle implements Serializable{
         this.popupNovo = popupNovo;
     }
 
-    public DAO<Arachnida> getDao() {
+    public DAO<Animal> getDao() {
         return dao;
     }
 
-    public void setDao(DAO<Arachnida> dao) {
+    public void setDao(DAO<Animal> dao) {
         this.dao = dao;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.arachnida);
-        hash = 53 * hash + Objects.hashCode(this.ecdise);
-        hash = 53 * hash + (this.popupNovo ? 1 : 0);
-        hash = 53 * hash + Objects.hashCode(this.dao);
+        hash = 31 * hash + Objects.hashCode(this.animal);
+        hash = 31 * hash + Objects.hashCode(this.ficha);
+        hash = 31 * hash + (this.popupNovo ? 1 : 0);
+        hash = 31 * hash + Objects.hashCode(this.dao);
         return hash;
     }
 
@@ -101,14 +97,14 @@ public class EcdiseArachnidaControle implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final EcdiseArachnidaControle other = (EcdiseArachnidaControle) obj;
+        final FichaClinicaControle other = (FichaClinicaControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
-        if (!Objects.equals(this.arachnida, other.arachnida)) {
+        if (!Objects.equals(this.animal, other.animal)) {
             return false;
         }
-        if (!Objects.equals(this.ecdise, other.ecdise)) {
+        if (!Objects.equals(this.ficha, other.ficha)) {
             return false;
         }
         if (!Objects.equals(this.dao, other.dao)) {
@@ -119,6 +115,8 @@ public class EcdiseArachnidaControle implements Serializable{
 
     @Override
     public String toString() {
-        return "EcdiseArachnidaControle{" + "arachnida=" + arachnida + ", ecdise=" + ecdise + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
+        return "FichaClinicaControle{" + "animal=" + animal + ", ficha=" + ficha + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
     }
+    
+    
 }

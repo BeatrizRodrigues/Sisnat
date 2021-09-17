@@ -1,4 +1,5 @@
-package controle;
+
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -8,8 +9,9 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Mammalia;
-import modelo.animal.MorfometriaMammalia;
+import modelo.animal.Animal;
+import modelo.animal.Ave;
+import modelo.animal.MorfometriaAves;
 
 /**
  *
@@ -17,23 +19,23 @@ import modelo.animal.MorfometriaMammalia;
  */
 @ViewScoped
 @Named
-public class MorfometriaMammaliaControle implements Serializable {
-    private Mammalia mammalia;
-    private DAO<Mammalia> dao;
+public class MorfometriaAveControle implements Serializable {
+    private Ave ave;
+    private DAO<Ave> dao;
     private boolean popupNovo;
-    private MorfometriaMammalia morfometria;
+    private MorfometriaAves morfometria;
     
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        mammalia = (Mammalia) ectx.getSessionMap().get("animal");
-        dao = new DAO(Mammalia.class);
-        morfometria = new MorfometriaMammalia();
+        ave = (Ave) ectx.getSessionMap().get("animal");
+        dao = new DAO(Ave.class);
+        morfometria = new MorfometriaAves();
     }
     
     public void abrePopupNovo() {
-        morfometria = new MorfometriaMammalia();
+        morfometria = new MorfometriaAves();
         this.popupNovo = true;
     }
     
@@ -42,25 +44,25 @@ public class MorfometriaMammaliaControle implements Serializable {
     }
     
     public void inserir() {
-        morfometria.setMamalia(mammalia);
-        mammalia.getMorfometria().add(morfometria);
-        dao.alterar(mammalia);
-        morfometria = new MorfometriaMammalia();
+        morfometria.setAves(ave);
+        ave.getMorfometria().add(morfometria);
+        dao.alterar(ave);
+        morfometria = new MorfometriaAves();
     }
 
-    public Mammalia getMammalia() {
-        return mammalia;
+    public Ave getAve() {
+        return ave;
     }
 
-    public void setMammalia(Mammalia mammalia) {
-        this.mammalia = mammalia;
+    public void setAve(Ave ave) {
+        this.ave = ave;
     }
 
-    public DAO<Mammalia> getDao() {
+    public DAO<Ave> getDao() {
         return dao;
     }
 
-    public void setDao(DAO<Mammalia> dao) {
+    public void setDao(DAO<Ave> dao) {
         this.dao = dao;
     }
 
@@ -72,21 +74,21 @@ public class MorfometriaMammaliaControle implements Serializable {
         this.popupNovo = popupNovo;
     }
 
-    public MorfometriaMammalia getMorfometria() {
+    public MorfometriaAves getMorfometria() {
         return morfometria;
     }
 
-    public void setMorfometria(MorfometriaMammalia morfometria) {
+    public void setMorfometria(MorfometriaAves morfometria) {
         this.morfometria = morfometria;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.mammalia);
-        hash = 79 * hash + Objects.hashCode(this.dao);
-        hash = 79 * hash + (this.popupNovo ? 1 : 0);
-        hash = 79 * hash + Objects.hashCode(this.morfometria);
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.ave);
+        hash = 89 * hash + Objects.hashCode(this.dao);
+        hash = 89 * hash + (this.popupNovo ? 1 : 0);
+        hash = 89 * hash + Objects.hashCode(this.morfometria);
         return hash;
     }
 
@@ -101,11 +103,11 @@ public class MorfometriaMammaliaControle implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MorfometriaMammaliaControle other = (MorfometriaMammaliaControle) obj;
+        final MorfometriaAveControle other = (MorfometriaAveControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
-        if (!Objects.equals(this.mammalia, other.mammalia)) {
+        if (!Objects.equals(this.ave, other.ave)) {
             return false;
         }
         if (!Objects.equals(this.dao, other.dao)) {
@@ -119,7 +121,7 @@ public class MorfometriaMammaliaControle implements Serializable {
 
     @Override
     public String toString() {
-        return "MorfometriaMammaliaControle{" + "mammalia=" + mammalia + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
+        return "MorfometriaAveControle{" + "ave=" + ave + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
     }
-    
+
 }

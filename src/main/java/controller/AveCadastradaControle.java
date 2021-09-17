@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -7,8 +7,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Amphibia;
 import modelo.animal.Animal;
+import modelo.animal.Ave;
 
 /**
  *
@@ -16,10 +16,10 @@ import modelo.animal.Animal;
  */
 @ViewScoped
 @Named
-public class AmphibiaCadastradaControle implements Serializable{
+public class AveCadastradaControle implements Serializable{
     private Animal animal;
-    private DAO<Amphibia> dao;
-       
+    private DAO<Animal> dao;
+        
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
@@ -49,20 +49,13 @@ public class AmphibiaCadastradaControle implements Serializable{
         return "/animal/fichaClinica";
     }
     
-    public String ecdise(Amphibia amphibia){
+    public String morfometria(Ave ave){
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
         ectx.getSessionMap().put("animal", animal);
-        return "/animal/ecdiseAmphibia";
+        return "/animal/morfometriaAve";
     }
-    
-    public String morfometria(Amphibia amphibia){
-        FacesContext context = FacesContext.getCurrentInstance();
-        ExternalContext ectx = context.getExternalContext();
-        ectx.getSessionMap().put("animal", animal);
-        return "/animal/morfometriaAmphibia";
-    }
-    
+
     public Animal getAnimal() {
         return animal;
     }
@@ -71,15 +64,11 @@ public class AmphibiaCadastradaControle implements Serializable{
         this.animal = animal;
     }
 
-    public DAO<Amphibia> getDao() {
+    public DAO<Animal> getDao() {
         return dao;
     }
 
-    public void setDao(DAO<Amphibia> dao) {
+    public void setDao(DAO<Animal> dao) {
         this.dao = dao;
     }
-    
-        
-    
-    
 }

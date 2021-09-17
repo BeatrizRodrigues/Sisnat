@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import dao.DAO;
 import dao.DAONome;

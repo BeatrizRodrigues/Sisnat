@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controle;
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -13,32 +13,33 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Amphibia;
-import modelo.animal.EcdiseAmphibia;
+import modelo.animal.Animal;
+import modelo.animal.Observacao;
 
 /**
  *
  * @author beeat
  */
+
 @ViewScoped
 @Named
-public class EcdiseAmphibiaControle implements Serializable  {
-    private Amphibia amphibia;
-    private EcdiseAmphibia ecdise;
+public class ObservacaoControle implements Serializable {
+    private Animal animal;
+    private Observacao observacao;
     private boolean popupNovo;
-    private DAO<Amphibia> dao;
+    private DAO<Animal> dao;
     
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        amphibia = (Amphibia) ectx.getSessionMap().get("animal");
-        dao = new DAO(Amphibia.class);
-        ecdise = new EcdiseAmphibia();
+        animal = (Animal) ectx.getSessionMap().get("animal");
+        dao = new DAO(Animal.class);
+        observacao = new Observacao();
     }
     
     public void abrePopupNovo() {
-        ecdise = new EcdiseAmphibia();
+        observacao = new Observacao();
         this.popupNovo = true;
     }
     
@@ -46,27 +47,27 @@ public class EcdiseAmphibiaControle implements Serializable  {
         this.popupNovo = false;
     }
     
-    public void inserir() {
-        ecdise.setAmphibia(amphibia);
-        amphibia.getEcdises().add(ecdise);
-        dao.alterar(amphibia);
-        ecdise = new EcdiseAmphibia();
+    public void inserir(){
+        observacao.setAnimal(animal);
+        animal.getObservacoes().add(observacao);
+        dao.alterar(animal);
+        observacao = new Observacao();
     }
 
-    public Amphibia getAmphibia() {
-        return amphibia;
+    public Animal getAnimal() {
+        return animal;
     }
 
-    public void setAmphibia(Amphibia amphibia) {
-        this.amphibia = amphibia;
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
     }
 
-    public EcdiseAmphibia getEcdise() {
-        return ecdise;
+    public Observacao getObservacao() {
+        return observacao;
     }
 
-    public void setEcdise(EcdiseAmphibia ecdise) {
-        this.ecdise = ecdise;
+    public void setObservacao(Observacao observacao) {
+        this.observacao = observacao;
     }
 
     public boolean isPopupNovo() {
@@ -77,21 +78,21 @@ public class EcdiseAmphibiaControle implements Serializable  {
         this.popupNovo = popupNovo;
     }
 
-    public DAO<Amphibia> getDao() {
+    public DAO<Animal> getDao() {
         return dao;
     }
 
-    public void setDao(DAO<Amphibia> dao) {
+    public void setDao(DAO<Animal> dao) {
         this.dao = dao;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.amphibia);
-        hash = 83 * hash + Objects.hashCode(this.ecdise);
-        hash = 83 * hash + (this.popupNovo ? 1 : 0);
-        hash = 83 * hash + Objects.hashCode(this.dao);
+        hash = 79 * hash + Objects.hashCode(this.animal);
+        hash = 79 * hash + Objects.hashCode(this.observacao);
+        hash = 79 * hash + (this.popupNovo ? 1 : 0);
+        hash = 79 * hash + Objects.hashCode(this.dao);
         return hash;
     }
 
@@ -106,14 +107,14 @@ public class EcdiseAmphibiaControle implements Serializable  {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final EcdiseAmphibiaControle other = (EcdiseAmphibiaControle) obj;
+        final ObservacaoControle other = (ObservacaoControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
-        if (!Objects.equals(this.amphibia, other.amphibia)) {
+        if (!Objects.equals(this.animal, other.animal)) {
             return false;
         }
-        if (!Objects.equals(this.ecdise, other.ecdise)) {
+        if (!Objects.equals(this.observacao, other.observacao)) {
             return false;
         }
         if (!Objects.equals(this.dao, other.dao)) {
@@ -121,9 +122,13 @@ public class EcdiseAmphibiaControle implements Serializable  {
         }
         return true;
     }
+    
+    
 
     @Override
     public String toString() {
-        return "EcdiseAmphibiaControle{" + "amphibia=" + amphibia + ", ecdise=" + ecdise + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
+        return "ObservacaoControle{" + "animal=" + animal + ", observacao=" + observacao + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
     }
+    
+    
 }

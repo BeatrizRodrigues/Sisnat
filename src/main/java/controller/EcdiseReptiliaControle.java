@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import dao.DAO;
 import java.io.Serializable;
@@ -8,7 +8,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.MorfometriaReptilia;
+import modelo.animal.EcdiseReptilia;
 import modelo.animal.Reptilia;
 
 /**
@@ -17,11 +17,11 @@ import modelo.animal.Reptilia;
  */
 @ViewScoped
 @Named
-public class MorfometriaReptiliaControle implements Serializable{
+public class EcdiseReptiliaControle implements Serializable{
     private Reptilia reptilia;
-    private DAO<Reptilia> dao;
+    private EcdiseReptilia ecdise;
     private boolean popupNovo;
-    private MorfometriaReptilia morfometria;
+    private DAO<Reptilia> dao;
     
     @PostConstruct
     public void inicializar(){         
@@ -29,11 +29,11 @@ public class MorfometriaReptiliaControle implements Serializable{
         ExternalContext ectx = context.getExternalContext();
         reptilia = (Reptilia) ectx.getSessionMap().get("animal");
         dao = new DAO(Reptilia.class);
-        morfometria = new MorfometriaReptilia();
+        ecdise = new EcdiseReptilia();
     }
-        
+    
     public void abrePopupNovo() {
-        morfometria = new MorfometriaReptilia();
+        ecdise = new EcdiseReptilia();
         this.popupNovo = true;
     }
     
@@ -42,10 +42,10 @@ public class MorfometriaReptiliaControle implements Serializable{
     }
     
     public void inserir() {
-        morfometria.setReptilia(reptilia);
-        reptilia.getMorfometrias().add(morfometria);
+        ecdise.setReptilia(reptilia);
+        reptilia.getEcdises().add(ecdise);
         dao.alterar(reptilia);
-        morfometria = new MorfometriaReptilia();
+        ecdise = new EcdiseReptilia();
     }
 
     public Reptilia getReptilia() {
@@ -56,12 +56,12 @@ public class MorfometriaReptiliaControle implements Serializable{
         this.reptilia = reptilia;
     }
 
-    public DAO<Reptilia> getDao() {
-        return dao;
+    public EcdiseReptilia getEcdise() {
+        return ecdise;
     }
 
-    public void setDao(DAO<Reptilia> dao) {
-        this.dao = dao;
+    public void setEcdise(EcdiseReptilia ecdise) {
+        this.ecdise = ecdise;
     }
 
     public boolean isPopupNovo() {
@@ -72,21 +72,21 @@ public class MorfometriaReptiliaControle implements Serializable{
         this.popupNovo = popupNovo;
     }
 
-    public MorfometriaReptilia getMorfometria() {
-        return morfometria;
+    public DAO<Reptilia> getDao() {
+        return dao;
     }
 
-    public void setMorfometria(MorfometriaReptilia morfometria) {
-        this.morfometria = morfometria;
+    public void setDao(DAO<Reptilia> dao) {
+        this.dao = dao;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.reptilia);
-        hash = 59 * hash + Objects.hashCode(this.dao);
-        hash = 59 * hash + (this.popupNovo ? 1 : 0);
-        hash = 59 * hash + Objects.hashCode(this.morfometria);
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.reptilia);
+        hash = 53 * hash + Objects.hashCode(this.ecdise);
+        hash = 53 * hash + (this.popupNovo ? 1 : 0);
+        hash = 53 * hash + Objects.hashCode(this.dao);
         return hash;
     }
 
@@ -101,24 +101,25 @@ public class MorfometriaReptiliaControle implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MorfometriaReptiliaControle other = (MorfometriaReptiliaControle) obj;
+        final EcdiseReptiliaControle other = (EcdiseReptiliaControle) obj;
         if (this.popupNovo != other.popupNovo) {
             return false;
         }
         if (!Objects.equals(this.reptilia, other.reptilia)) {
             return false;
         }
-        if (!Objects.equals(this.dao, other.dao)) {
+        if (!Objects.equals(this.ecdise, other.ecdise)) {
             return false;
         }
-        if (!Objects.equals(this.morfometria, other.morfometria)) {
+        if (!Objects.equals(this.dao, other.dao)) {
             return false;
         }
         return true;
     }
 
+    
     @Override
     public String toString() {
-        return "MorfometriaReptiliaControle{" + "reptilia=" + reptilia + ", dao=" + dao + ", popupNovo=" + popupNovo + ", morfometria=" + morfometria + '}';
-    }    
+        return "EcdiseReptiliaControle{" + "reptilia=" + reptilia + ", ecdise=" + ecdise + ", popupNovo=" + popupNovo + ", dao=" + dao + '}';
+    }
 }
