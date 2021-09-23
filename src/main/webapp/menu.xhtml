@@ -1,19 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="template.xhtml">  
         <ui:define name="body">
 
-            <h:panelGrid style=" width: 100%; text-align:  right" >
-                <p:link outcome="index" value="sair" styleClass="link" />
+            <h:panelGrid style="display: flex; justify-content: space-around; align-items: center; padding-top: 100px;" >                
+                <p:linkButton outcome="adm/adm" value="Gerenciar Administrador" styleClass="link" style="background: #008037; border-color: #008037;
+                              color: #fff !important; width: 300px; height: 40px; text-align: center; display: flex; float: left; justify-content: center;
+                              align-items: center; box-shadow: none"/>
                 
             </h:panelGrid>
-            <p:link outcome="adm/adm" value="Gerenciar Administrador" styleClass="link" />
-            <p/>
-            <p:link outcome="animal/animal" value="Gerenciar Animais" styleClass="link" />
-
+            
+            <h:panelGrid style="display: flex; justify-content: space-around; align-items: center; padding-top: 50px;" >
+                <p:linkButton outcome="animal/animal" value="Gerenciar Animais" styleClass="link" style="background: #008037; border-color: #008037;
+                              color: #fff !important; width: 300px; height: 40px; text-align: center; display: flex; float: left; justify-content: center;
+                              align-items: center; box-shadow: none"/>
+            </h:panelGrid>
 
         </ui:define>
     </ui:composition>
