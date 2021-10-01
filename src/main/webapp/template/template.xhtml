@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <title>Sisnat</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+
+    <h:body styleClass="body">
+        <ui:insert name="cabecalho" >
+            <h:form>
+                <p:menubar id="menubar" style="background: #6aa570 !important; display: flex; align-items: center">
+
+                    <p:menuitem class="menulink">                        
+                            <h:graphicImage name="img/logo.PNG" height="50" />                        
+                    </p:menuitem>
+                    
+                    <p:menuitem class="menulink" value="Sair" outcome="/index.xhtml" style="padding-top: 17px; padding-left: 10px; color: white; font-size: 18px;"/>
+                    <p:menuitem class="menulink" value="Menu" outcome="/menu.xhtml" style="padding-top: 17px; padding-left: 10px; color: white; font-size: 18px;"/>
+                
+                </p:menubar>
+            </h:form>
+        </ui:insert>
+        <ui:insert name="body"/>
+        <h:graphicImage name="img/lag.png" style="width: 350px; height: 350px; position: absolute; left: 0px; bottom: 0px;"/>
+        <h:graphicImage name="img/logo.jpg" style="width: 166px; height: 58.50px; position: absolute; right: 30px; bottom: 30px;"/>
+    </h:body>
+
+</html>

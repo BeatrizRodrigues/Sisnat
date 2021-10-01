@@ -38,3 +38,23 @@ a{
     background: #0C7611 !important;
 }
 
+.ui-datatable #table{
+    background-color: #0C7611;    
+}
+
+.ui-datatable-even{
+    background-color: #E7FFEB;
+    border-color: #000;
+    color: #000;
+}
+.ui-datatable-odd{
+    background-color: #C6F0C7;
+    border-color: #000;
+    color: #000;
+}
+
+.ui-datatable thead th{
+    background: #6aa570 !important;
+    border-color: #000;
+    color: #fff;
+}

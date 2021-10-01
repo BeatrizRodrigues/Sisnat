@@ -6,16 +6,12 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/template/template.xhtml">
         <ui:define name="body">
-            <h:form >
-                <h:panelGrid style=" width:100%; text-align: right"  >                 
-                    <p:commandLink styleClass="link" value="menu" action="/menu"  />                                  
-                </h:panelGrid>
-            </h:form>   
+            
             <p/>
             <h:form>
-                <h:outputText value="#{amphibiaCadastradaControle.animal.grupo}"/>
+                <h:outputText value="Nome: #{amphibiaCadastradaControle.animal.setNomeCientifico(nomeCientifico)}"/>
                                 
             </h:form>
             <p/>

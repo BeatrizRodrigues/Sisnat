@@ -4,29 +4,27 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">  
+    
+    <ui:composition template="/template/template.xhtml">  
         <ui:define name="body">
-            <h:form >
-                <h:panelGrid style=" width:100%; text-align: right"  >                 
-                        <p:commandLink styleClass="link" value="menu" action="/menu"  />                                  
-                </h:panelGrid>
-            </h:form>
             <p/>
             <h:form>
-                <p:commandLink styleClass="link" value="Cadastrar novo animal"
+                <p:commandLink class="botAnimal" styleClass="text fa fa-plus" value="  Cadastrar novo animal"
                                action="#{animalControle.abrePopupGrupo()}"
-                               update="popupGrupo" />
+                               update="popupGrupo" style="text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; height: 35px; width: 160px; border-radius: 5px;"/>
             </h:form> 
             <p/>
             <h:form id="formPrincipal" >
-                <p:dataTable var="animal" value="#{animalControle.lista}"
-                             tableStyle="width:auto;  min-width: 100%" > 
-                    <p:column headerText="Id" sortBy="#{animal.id}">
-                        <p:commandLink styleClass="link" value="#{animal.id}" action="#{animalControle.abreFicha(animal)}" />
+                <p:dataTable class="tav" var="animal" value="#{animalControle.lista}"
+                             tableStyle="width:auto;  min-width: 100%;"> 
+                    <p:column>
+                        <p:commandLink styleClass="fa fa-plus fa-5x" action="#{animalControle.abreFicha(animal)}" style="color: #4E67EC;"/>
                     </p:column>
-                    <p:column headerText="Animais:">
-                        <h:outputText value="#{animal.nomeCientifico}" />
+                    <p:column headerText="Id" sortBy="#{animal.id}">
+                        <h:outputText value="#{animal.id}" style="color: #000 !important;"/>
+                    </p:column>
+                    <p:column id="table" headerText="Animais:">
+                        <h:outputText value="#{animal.nomeCientifico}" style="color: #000;"/>
                     </p:column>
                     <p:column headerText="Data de Entrada:">
                         <h:outputText value="#{animal.dataEntrada}" > <f:convertDateTime pattern="dd/MM/yyyy"/> 
@@ -44,12 +42,12 @@
 
             <p:dialog closable="false" modal="true" header="Escolha o grupo"
                       id="popupGrupo" appendTo="@(body)" widgetVar="popupGrupo"
-                      visible="#{animalControle.popupGrupo}" >
-                <h:form id="formPopupGrupo" >                    
+                      visible="#{animalControle.popupGrupo}"  style="color: #E7FFEB;">
+                <h:form id="formPopupGrupo">                    
                     <h:panelGrid columns="2">
                         <p:outputLabel value="Grupo: "/>
                         <p:selectOneRadio value="#{animalControle.grupo}" unselectable="true"
-                                          required="true" requiredMessage="Grupo obrigatório" >
+                                          required="true" requiredMessage="Grupo obrigatório" style="color: #000;">
                             <f:selectItem itemLabel="Amphibia" itemValue="Amphibia"/>
                             <f:selectItem itemLabel="Arachnida" itemValue="Arachnida"/>
                             <f:selectItem itemLabel="Ave" itemValue="Ave"/>
@@ -57,12 +55,12 @@
                             <f:selectItem itemLabel="Reptilia" itemValue="Reptilia"/>
                         </p:selectOneRadio>                                                   
                     </h:panelGrid>
-                    
+
                     <p:commandButton value="fechar" action="#{animalControle.fechaPopupGrupo()}"
                                      update="popupGrupo"/>
                     <p:commandButton value="continuar" action="#{animalControle.preparaNovoAnimal()}"
                                      update="popupGrupo"/>
-                    
+
                 </h:form>
             </p:dialog>            
 

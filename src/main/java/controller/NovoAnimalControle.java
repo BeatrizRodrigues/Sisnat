@@ -47,7 +47,7 @@ public class NovoAnimalControle implements Serializable {
             novoAnimal = new Reptilia(); 
             dao = new DAO(Reptilia.class);
         }
-        if(grupo.equals("Ave")){
+        if(grupo.equals("Aves")){
            novoAnimal = new Ave();
            dao = new DAO(Ave.class);
         }
@@ -105,7 +105,7 @@ public class NovoAnimalControle implements Serializable {
             DAO<Amphibia> aux = new DAO(Amphibia.class);
             aux.inserir(am);
         }
-        if(grupo.equals("Ave")){
+        if(grupo.equals("Aves")){
             Ave ave = (Ave)novoAnimal;
             DAO<Ave> aux = new DAO(Ave.class);
             aux.inserir(ave);

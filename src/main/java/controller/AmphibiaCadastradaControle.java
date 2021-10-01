@@ -17,14 +17,14 @@ import modelo.animal.Animal;
 @ViewScoped
 @Named
 public class AmphibiaCadastradaControle implements Serializable{
-    private Animal animal;
+    private Amphibia animal;
     private DAO<Amphibia> dao;
        
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        animal = (Animal) ectx.getSessionMap().get("animal");
+        animal = (Amphibia) ectx.getSessionMap().get("animal");
         dao = new DAO(Animal.class);
     }
        
@@ -67,7 +67,7 @@ public class AmphibiaCadastradaControle implements Serializable{
         return animal;
     }
 
-    public void setAnimal(Animal animal) {
+    public void setAnimal(Amphibia animal) {
         this.animal = animal;
     }
 
@@ -77,9 +77,5 @@ public class AmphibiaCadastradaControle implements Serializable{
 
     public void setDao(DAO<Amphibia> dao) {
         this.dao = dao;
-    }
-    
-        
-    
-    
+    }  
 }
