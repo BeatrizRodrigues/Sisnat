@@ -7,8 +7,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Animal;
-import modelo.animal.Ave;
+import model.animal.Animal;
+import model.animal.Ave;
 
 /**
  *

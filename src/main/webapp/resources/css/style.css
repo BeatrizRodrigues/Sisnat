@@ -23,7 +23,6 @@ a{
     background: none;
     box-shadow: none;
     color: #FFE600 !important;
-    font-size: 16px !important;
 }
 
 .fa-user{
@@ -34,27 +33,19 @@ a{
     width: 150px;
 }
 
-.botMenu:hover{
-    background: #0C7611 !important;
-}
-
-.ui-datatable #table{
-    background-color: #0C7611;    
-}
-
 .ui-datatable-even{
     background-color: #E7FFEB;
-    border-color: #000;
+    border-color: #E7FFEB;
     color: #000;
 }
 .ui-datatable-odd{
     background-color: #C6F0C7;
-    border-color: #000;
+    border-color: #C6F0C7;
     color: #000;
 }
 
 .ui-datatable thead th{
     background: #6aa570 !important;
-    border-color: #000;
+    border-color: #6aa570;
     color: #fff;
 }

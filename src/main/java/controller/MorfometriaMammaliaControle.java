@@ -8,8 +8,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Mammalia;
-import modelo.animal.MorfometriaMammalia;
+import model.animal.Mammalia;
+import model.animal.MorfometriaMammalia;
 
 /**
  *

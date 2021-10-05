@@ -1,4 +1,4 @@
-package modelo.animal;
+package model.animal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,29 +16,29 @@ import javax.persistence.Table;
  * @author beeat
  */
 @Entity
-@Table(name="aves")
-@DiscriminatorValue("aves")
-public class Ave extends Animal implements Serializable {
+@Table(name="mamalia")
+@DiscriminatorValue("mamalia")
+public class Mammalia extends Animal implements Serializable {
     
-    @OneToMany(mappedBy = "aves", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MorfometriaAves> morfometria;
+    @OneToMany(mappedBy = "mamalia", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MorfometriaMammalia> morfometria;
     
-    public Ave(){
+    public Mammalia(){
         morfometria = new ArrayList();
     }
 
-    public List<MorfometriaAves> getMorfometria() {
+    public List<MorfometriaMammalia> getMorfometria() {
         return morfometria;
     }
 
-    public void setMorfometria(List<MorfometriaAves> morfometria) {
+    public void setMorfometria(List<MorfometriaMammalia> morfometria) {
         this.morfometria = morfometria;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.morfometria);
+        hash = 97 * hash + Objects.hashCode(this.morfometria);
         return hash;
     }
 
@@ -53,7 +53,7 @@ public class Ave extends Animal implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Ave other = (Ave) obj;
+        final Mammalia other = (Mammalia) obj;
         if (!Objects.equals(this.morfometria, other.morfometria)) {
             return false;
         }
@@ -62,7 +62,8 @@ public class Ave extends Animal implements Serializable {
 
     @Override
     public String toString() {
-        return "Ave{" + "morfometria=" + morfometria + '}';
-    }   
+        return "Mamalia{" + "morfometria=" + morfometria + '}';
+    }
+    
     
 }

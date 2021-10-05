@@ -1,4 +1,4 @@
-package modelo.animal;
+package model.animal;
 
 import java.io.Serializable;
 import java.util.Objects;

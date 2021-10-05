@@ -7,7 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.faces.context.FacesContext;
-import modelo.usuario.Administrador;
+import model.usuario.Administrador;
 
 @Named
 @ViewScoped

@@ -16,8 +16,7 @@
             <h:panelGrid style="margin: 0 auto;"><h:outputText styleClass="fa fa-user fa-5x"/></h:panelGrid>
             <h:form id="formLogin">
                 <h:panelGrid cellspacing="10">
-                    <h2>Acesse o sistema</h2>
-                 
+                    <h2>Acesse o sistema</h2>                 
                     <p:inputText id="campoLogin" placeholder="Usuário" value="#{indexControle.adm.login}" size="50" required="true" maxlength="10" requiredMessage="Campo usuário é obrigatório">
                         <p:ajax listener="#{indexControle.converter()}" update="campoLogin" />
                     </p:inputText>

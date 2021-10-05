@@ -12,8 +12,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Animal;
-import modelo.animal.Mammalia;
+import model.animal.Animal;
+import model.animal.Mammalia;
 
 /**
  *
@@ -21,15 +21,15 @@ import modelo.animal.Mammalia;
  */
 @ViewScoped
 @Named
-public class MammaliaCadastradaControle implements Serializable{
-    private Animal animal;
-    private DAO<Animal> dao;
+public class MammaliaCadastradaController implements Serializable{
+    private Mammalia animal;
+    private DAO<Mammalia> dao;
         
     @PostConstruct
     public void inicializar(){         
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext ectx = context.getExternalContext();
-        animal = (Animal) ectx.getSessionMap().get("animal");
+        animal = (Mammalia) ectx.getSessionMap().get("animal");
         dao = new DAO(Animal.class);
     }
        
@@ -61,19 +61,21 @@ public class MammaliaCadastradaControle implements Serializable{
         return "/animal/morfometriaMammalia";
     }
 
-    public Animal getAnimal() {
+    public Mammalia getAnimal() {
         return animal;
     }
 
-    public void setAnimal(Animal animal) {
+    public void setAnimal(Mammalia animal) {
         this.animal = animal;
     }
 
-    public DAO<Animal> getDao() {
+    public DAO<Mammalia> getDao() {
         return dao;
     }
 
-    public void setDao(DAO<Animal> dao) {
+    public void setDao(DAO<Mammalia> dao) {
         this.dao = dao;
     }
+
+    
 }

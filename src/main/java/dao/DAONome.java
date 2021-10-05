@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import modelo.animal.Nome;
+import model.animal.Nome;
 import util.JpaUtil;
 
 public class DAONome implements Serializable {

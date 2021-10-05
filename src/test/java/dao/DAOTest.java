@@ -1,8 +1,8 @@
 package dao;
 
 import java.util.List;
-import modelo.animal.Animal;
-import modelo.usuario.Administrador;
+import model.animal.Animal;
+import model.usuario.Administrador;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;

@@ -5,29 +5,30 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
-    <ui:composition template="/template/template.xhtml">  
+    <ui:composition template="/template/template.xhtml">
+        <h:outputStylesheet library="css" name="/resources/css/style.css"/>
         <ui:define name="body">
             <p/>
             <h:form>
-                <p:commandLink class="botAnimal" styleClass="text fa fa-plus" value="  Cadastrar novo animal"
+                <p:commandLink class="botAnimal" styleClass="text fa fa-plus" value="  Cadastrar"
                                action="#{animalControle.abrePopupGrupo()}"
-                               update="popupGrupo" style="text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; height: 35px; width: 160px; border-radius: 5px;"/>
+                               update="popupGrupo" style="text-align: center; font-size: 18px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;"/>
             </h:form> 
             <p/>
             <h:form id="formPrincipal" >
                 <p:dataTable class="tav" var="animal" value="#{animalControle.lista}"
                              tableStyle="width:auto;  min-width: 100%;"> 
                     <p:column>
-                        <p:commandLink styleClass="fa fa-plus fa-5x" action="#{animalControle.abreFicha(animal)}" style="color: #4E67EC;"/>
+                        <p:commandLink styleClass="fa fa-plus fa-5x" action="#{animalControle.abreFicha(animal)}" style="color: #4E67EC; display: flex; justify-content: center;"/>
                     </p:column>
                     <p:column headerText="Id" sortBy="#{animal.id}">
-                        <h:outputText value="#{animal.id}" style="color: #000 !important;"/>
+                        <h:outputText value="#{animal.id}" style="color: #000 !important; display: flex; justify-content: center;"/>
                     </p:column>
-                    <p:column id="table" headerText="Animais:">
-                        <h:outputText value="#{animal.nomeCientifico}" style="color: #000;"/>
+                    <p:column headerText="Animais:">
+                        <h:outputText value="#{animal.nomeCientifico}" style="color: #000; display: flex; justify-content: center;"/>
                     </p:column>
                     <p:column headerText="Data de Entrada:">
-                        <h:outputText value="#{animal.dataEntrada}" > <f:convertDateTime pattern="dd/MM/yyyy"/> 
+                        <h:outputText value="#{animal.dataEntrada}" style="display: flex; justify-content: center;"> <f:convertDateTime pattern="dd/MM/yyyy"/> 
                         </h:outputText> 
                     </p:column>
                 </p:dataTable>   

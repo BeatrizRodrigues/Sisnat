@@ -7,18 +7,19 @@
         <ui:define name="body">
 
             <h:panelGrid style="display: flex; justify-content: space-around; align-items: center; padding-top: 100px;" >                
-                <p:linkButton outcome="adm/adm" value="Gerenciar Administrador" styleClass="link" style="background: #008037; border-color: #008037;
+                <p:linkButton outcome="adm/adm" value="Gerenciar Administrador" styleClass="link" style="background: #6aa570; border-color: #6aa570;
                               color: #fff !important; width: 300px; height: 40px; text-align: center; display: flex; float: left; justify-content: center;
-                              align-items: center; box-shadow: none"/>
-                
-            </h:panelGrid>
-            
-            <h:panelGrid style="display: flex; justify-content: space-around; align-items: center; padding-top: 50px;" >
-                <p:linkButton outcome="animal/animal" value="Gerenciar Animais" styleClass="link" style="background: #008037; border-color: #008037;
-                              color: #fff !important; width: 300px; height: 40px; text-align: center; display: flex; float: left; justify-content: center;
-                              align-items: center; box-shadow: none"/>
+                              align-items: center; box-shadow: none; font-size: 18px;"/>
+
             </h:panelGrid>
 
+            <h:panelGrid style="display: flex; justify-content: space-around; align-items: center; padding-top: 50px;" >
+                <p:linkButton outcome="animal/animal" value="Gerenciar Animais" styleClass="link" style="background: #6aa570; border-color: #6aa570;
+                              color: #fff !important; width: 300px; height: 40px; text-align: center; display: flex; float: left; justify-content: center;
+                              align-items: center; box-shadow: none; font-size: 18px;"/>
+            </h:panelGrid>
+
+            <h:graphicImage name="img/lag.png" style="width: 350px; height: 350px; position: absolute; left: 0px; bottom: 0px;"/>
         </ui:define>
     </ui:composition>
 </html>

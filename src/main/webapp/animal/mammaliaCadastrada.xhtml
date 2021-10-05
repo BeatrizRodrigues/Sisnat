@@ -14,27 +14,27 @@
             </h:form>   
             <p/>
             <h:form>
-                <h:outputText value="#{mammaliaCadastradaControle.animal.grupo}"/>
+                <h:outputLabel value="Espécie: " style="font-size: 18px; color: #008037;"/>
+                <h:outputLabel value="Mammalia" style="font-size: 18px; color: #000;"/>
+                <h:outputLabel value="Nome científico: "/>
+                <h:outputLabel value="#{mammaliaCadastradaController.animal.nomeCientifico}"/>
+                
+                <h:outputLabel value="Nome popular: "/>
+                <h:outputLabel value="#{mammaliaCadastradaController.animal.nomePopular}"/>
             </h:form>
             <p/>                                    
-            <h:form>
-                <p:commandLink styleClass="link" value="Adicionar alimentacao" 
-                               action="#{mammaliaCadastradaControle.alimentar(animal)}"  />
-            </h:form>
-            <p/>
-            <h:form>
-                <p:commandLink styleClass="link" value="Adicionar observação" 
-                               action="#{mammaliaCadastradaControle.observacao(animal)}"  />
-            </h:form>
-            <p/>
-            <h:form>
-                <p:commandLink styleClass="link" value="Adicionar atendimento" 
-                               action="#{mammaliaCadastradaControle.ficha(animal)}"  />
-            </h:form>
-            <p/>
-            <h:form>
-                <p:commandLink styleClass="link" value="Adicionar morfometria" 
-                               action="#{mammaliaCadastradaControle.morfometria(mammalia)}"  />
+            <h:form style="display: flex; justify-content: space-between">
+                <p:commandLink styleClass="text" value="Alimentações" 
+                               action="#{mammaliaCadastradaController.alimentar(animal)}" style="margin-left: 150px; text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
+            
+                <p:commandLink styleClass="text" value="Observações" 
+                               action="#{mammaliaCadastradaController.observacao(animal)}" style="text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
+            
+                <p:commandLink styleClass="text" value="Atendimentos" 
+                               action="#{mammaliaCadastradaController.ficha(animal)}" style="text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
+            
+                <p:commandLink styleClass="text" value="Morfometria" 
+                               action="#{mammaliaCadastradaController.morfometria(mammalia)}" style="margin-right: 150px; text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
             </h:form>
             <p/>
         </ui:define>

@@ -8,9 +8,9 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Animal;
-import modelo.animal.Arachnida;
-import modelo.animal.MorfometriaArachnida;
+import model.animal.Animal;
+import model.animal.Arachnida;
+import model.animal.MorfometriaArachnida;
 
 /**
  *

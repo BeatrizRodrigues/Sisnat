@@ -1,4 +1,9 @@
-package modelo.animal;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model.animal;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,26 +18,31 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ *
+ * @author beeat
+ */
 @Entity
-public class FichaClinica implements Serializable{
+public class Observacao implements Serializable {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
     
     @Column
     @Temporal(TemporalType.DATE)
-    private Date dataProcedimento;
+    private Date dataObs;
     
-    @Column(length = 50)
-    private String procedimento;
+    @Column(length = 100)
+    private String observacao;
     
     @ManyToOne
     @JoinColumn(name = "animal")
     private Animal animal;
     
-    public FichaClinica(){
-        dataProcedimento = new Date();
-        procedimento = "";
+    public Observacao(){
+        dataObs = new Date();
+        observacao = "";
         animal = new Animal();
     }
 
@@ -44,20 +54,20 @@ public class FichaClinica implements Serializable{
         this.id = id;
     }
 
-    public Date getDataProcedimento() {
-        return dataProcedimento;
+    public Date getDataObs() {
+        return dataObs;
     }
 
-    public void setDataProcedimento(Date dataProcedimento) {
-        this.dataProcedimento = dataProcedimento;
+    public void setDataObs(Date dataObs) {
+        this.dataObs = dataObs;
     }
 
-    public String getProcedimento() {
-        return procedimento;
+    public String getObservacao() {
+        return observacao;
     }
 
-    public void setProcedimento(String procedimento) {
-        this.procedimento = procedimento;
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 
     public Animal getAnimal() {
@@ -70,11 +80,11 @@ public class FichaClinica implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 47 * hash + Objects.hashCode(this.id);
-        hash = 47 * hash + Objects.hashCode(this.dataProcedimento);
-        hash = 47 * hash + Objects.hashCode(this.procedimento);
-        hash = 47 * hash + Objects.hashCode(this.animal);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.id);
+        hash = 89 * hash + Objects.hashCode(this.dataObs);
+        hash = 89 * hash + Objects.hashCode(this.observacao);
+        hash = 89 * hash + Objects.hashCode(this.animal);
         return hash;
     }
 
@@ -89,14 +99,14 @@ public class FichaClinica implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final FichaClinica other = (FichaClinica) obj;
-        if (!Objects.equals(this.procedimento, other.procedimento)) {
+        final Observacao other = (Observacao) obj;
+        if (!Objects.equals(this.observacao, other.observacao)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.dataProcedimento, other.dataProcedimento)) {
+        if (!Objects.equals(this.dataObs, other.dataObs)) {
             return false;
         }
         if (!Objects.equals(this.animal, other.animal)) {
@@ -107,7 +117,7 @@ public class FichaClinica implements Serializable{
 
     @Override
     public String toString() {
-        return "FichaClinica{" + "id=" + id + ", dataProcedimento=" + dataProcedimento + ", procedimento=" + procedimento + ", animal=" + animal + '}';
+        return "Observacao{" + "id=" + id + ", dataObs=" + dataObs + ", observacao=" + observacao + ", animal=" + animal + '}';
     }
     
     

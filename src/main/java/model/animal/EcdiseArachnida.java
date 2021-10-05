@@ -1,4 +1,4 @@
-package modelo.animal;
+package model.animal;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,8 +18,8 @@ import javax.persistence.TemporalType;
  * @author beeat
  */
 @Entity
-public class EcdiseAmphibia implements Serializable {
-    @Id
+public class EcdiseArachnida implements Serializable {
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
     
@@ -31,13 +31,13 @@ public class EcdiseAmphibia implements Serializable {
     private String ecdise;
     
     @ManyToOne
-    @JoinColumn(name = "amphibia")
-    private Amphibia amphibia;
+    @JoinColumn(name = "arachnida")
+    private Arachnida arachnida;
     
-    public EcdiseAmphibia(){
+    public EcdiseArachnida(){
         dataEcdise = new Date();
         ecdise = "";
-        amphibia = new Amphibia();
+        arachnida = new Arachnida();
     }
 
     public Integer getId() {
@@ -64,21 +64,21 @@ public class EcdiseAmphibia implements Serializable {
         this.ecdise = ecdise;
     }
 
-    public Amphibia getAmphibia() {
-        return amphibia;
+    public Arachnida getArachnida() {
+        return arachnida;
     }
 
-    public void setAmphibia(Amphibia amphibia) {
-        this.amphibia = amphibia;
+    public void setArachnida(Arachnida arachnida) {
+        this.arachnida = arachnida;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        hash = 79 * hash + Objects.hashCode(this.dataEcdise);
-        hash = 79 * hash + Objects.hashCode(this.ecdise);
-        hash = 79 * hash + Objects.hashCode(this.amphibia);
+        hash = 71 * hash + Objects.hashCode(this.id);
+        hash = 71 * hash + Objects.hashCode(this.dataEcdise);
+        hash = 71 * hash + Objects.hashCode(this.ecdise);
+        hash = 71 * hash + Objects.hashCode(this.arachnida);
         return hash;
     }
 
@@ -93,7 +93,7 @@ public class EcdiseAmphibia implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final EcdiseAmphibia other = (EcdiseAmphibia) obj;
+        final EcdiseArachnida other = (EcdiseArachnida) obj;
         if (!Objects.equals(this.ecdise, other.ecdise)) {
             return false;
         }
@@ -103,7 +103,7 @@ public class EcdiseAmphibia implements Serializable {
         if (!Objects.equals(this.dataEcdise, other.dataEcdise)) {
             return false;
         }
-        if (!Objects.equals(this.amphibia, other.amphibia)) {
+        if (!Objects.equals(this.arachnida, other.arachnida)) {
             return false;
         }
         return true;
@@ -111,6 +111,7 @@ public class EcdiseAmphibia implements Serializable {
 
     @Override
     public String toString() {
-        return "EcdiseAmphibia{" + "id=" + id + ", dataEcdise=" + dataEcdise + ", ecdise=" + ecdise + ", amphibia=" + amphibia + '}';
+        return "EcdiseArachnida{" + "id=" + id + ", dataEcdise=" + dataEcdise + ", ecdise=" + ecdise + ", arachnida=" + arachnida + '}';
     }
+    
 }

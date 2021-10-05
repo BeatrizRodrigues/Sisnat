@@ -2,25 +2,25 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="SisnatPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>modelo.usuario.Administrador</class>
-    <class>modelo.animal.Animal</class>
-    <class>modelo.animal.Alimentacao</class>
-    <class>modelo.animal.FichaClinica</class>
-    <class>modelo.animal.Amphibia</class>
-    <class>modelo.animal.Arachnida</class>
-    <class>modelo.animal.Ave</class>
-    <class>modelo.animal.MorfometriaAmphibia</class>
-    <class>modelo.animal.MorfometriaArachnida</class>
-    <class>modelo.animal.MorfometriaAves</class>
-    <class>modelo.animal.MorfometriaReptilia</class>
-    <class>modelo.animal.Observacao</class>
-    <class>modelo.animal.Reptilia</class>
-    <class>modelo.animal.Nome</class>
-    <class>modelo.animal.Mammalia</class>
-    <class>modelo.animal.MorfometriaMammalia</class>
-    <class>modelo.animal.EcdiseArachnida</class>
-    <class>modelo.animal.EcdiseReptilia</class>
-    <class>modelo.animal.EcdiseAmphibia</class>
+    <class>model.animal.Arachnida</class>
+    <class>model.animal.MorfometriaMammalia</class>
+    <class>model.animal.Amphibia</class>
+    <class>model.animal.MorfometriaArachnida</class>
+    <class>model.animal.MorfometriaAves</class>
+    <class>model.animal.MorfometriaReptilia</class>
+    <class>model.animal.Ave</class>
+    <class>model.animal.EcdiseArachnida</class>
+    <class>model.animal.Observacao</class>
+    <class>model.animal.Mammalia</class>
+    <class>model.animal.Alimentacao</class>
+    <class>model.animal.Animal</class>
+    <class>model.animal.MorfometriaAmphibia</class>
+    <class>model.animal.FichaClinica</class>
+    <class>model.animal.Nome</class>
+    <class>model.animal.EcdiseAmphibia</class>
+    <class>model.animal.EcdiseReptilia</class>
+    <class>model.animal.Reptilia</class>
+    <class>model.usuario.Administrador</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Sisnat"/>

@@ -1,4 +1,4 @@
-package modelo.animal;
+package model.animal;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
  * @author beeat
  */
 @Entity
-public class MorfometriaArachnida implements Serializable {
+public class MorfometriaAves implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -32,29 +32,37 @@ public class MorfometriaArachnida implements Serializable {
     private double peso;
     
     @Column(length = 15)
+    private double cb;
+    
+    @Column(length = 15)
+    private double h;
+    
+    @Column(length = 15)
     private double cc;
     
     @Column(length = 15)
-    private double cp;
+    private double ca;
     
     @Column(length = 15)
-    private double cpp;
+    private double ct;
     
     @Column(length = 50)
     private String observacao;
     
     @ManyToOne
-    @JoinColumn(name = "arachnida")
-    private Arachnida arachnida;
+    @JoinColumn(name = "aves")
+    private Ave aves;
     
-    public MorfometriaArachnida(){
+    public MorfometriaAves(){
         dataMedicao = new Date();
         peso = 0;
+        cb = 0;
+        h = 0;
         cc = 0;
-        cp = 0;
-        cpp = 0;
+        ca = 0;
+        ct = 0;
         observacao = "";
-        arachnida = new Arachnida();
+        aves = new Ave();
     }
 
     public Integer getId() {
@@ -81,6 +89,22 @@ public class MorfometriaArachnida implements Serializable {
         this.peso = peso;
     }
 
+    public double getCb() {
+        return cb;
+    }
+
+    public void setCb(double cb) {
+        this.cb = cb;
+    }
+
+    public double getH() {
+        return h;
+    }
+
+    public void setH(double h) {
+        this.h = h;
+    }
+
     public double getCc() {
         return cc;
     }
@@ -89,20 +113,20 @@ public class MorfometriaArachnida implements Serializable {
         this.cc = cc;
     }
 
-    public double getCp() {
-        return cp;
+    public double getCa() {
+        return ca;
     }
 
-    public void setCp(double cp) {
-        this.cp = cp;
+    public void setCa(double ca) {
+        this.ca = ca;
     }
 
-    public double getCpp() {
-        return cpp;
+    public double getCt() {
+        return ct;
     }
 
-    public void setCpp(double cpp) {
-        this.cpp = cpp;
+    public void setCt(double ct) {
+        this.ct = ct;
     }
 
     public String getObservacao() {
@@ -113,19 +137,19 @@ public class MorfometriaArachnida implements Serializable {
         this.observacao = observacao;
     }
 
-    public Arachnida getArachnida() {
-        return arachnida;
+    public Ave getAves() {
+        return aves;
     }
 
-    public void setArachnida(Arachnida arachnida) {
-        this.arachnida = arachnida;
+    public void setAves(Ave aves) {
+        this.aves = aves;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.id);
-        hash = 29 * hash + Objects.hashCode(this.dataMedicao);
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        hash = 79 * hash + Objects.hashCode(this.dataMedicao);
         return hash;
     }
 
@@ -140,8 +164,8 @@ public class MorfometriaArachnida implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MorfometriaArachnida other = (MorfometriaArachnida) obj;
-        
+        final MorfometriaAves other = (MorfometriaAves) obj;
+      
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -153,9 +177,8 @@ public class MorfometriaArachnida implements Serializable {
 
     @Override
     public String toString() {
-        return "MorfometriaArachnida{" + "id=" + id + ", dataMedicao=" + dataMedicao + '}';
+        return "MorfometriaAves{" + "id=" + id + ", dataMedicao=" + dataMedicao +  '}';
     }
-    
     
     
 }

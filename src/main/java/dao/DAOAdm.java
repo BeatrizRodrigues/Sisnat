@@ -4,7 +4,7 @@ package dao;
 import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import modelo.usuario.Administrador;
+import model.usuario.Administrador;
 import util.JpaUtil;
 
 public class DAOAdm implements Serializable {

@@ -1,5 +1,5 @@
 
-package modelo.usuario;
+package model.usuario;
 
 import java.io.Serializable;
 import java.util.Objects;

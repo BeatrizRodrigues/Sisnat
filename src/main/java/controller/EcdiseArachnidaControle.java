@@ -8,8 +8,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Arachnida;
-import modelo.animal.EcdiseArachnida;
+import model.animal.Arachnida;
+import model.animal.EcdiseArachnida;
 
 /**
  *

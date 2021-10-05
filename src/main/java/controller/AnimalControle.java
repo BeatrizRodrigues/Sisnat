@@ -11,13 +11,13 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import modelo.animal.Amphibia;
-import modelo.animal.Animal;
-import modelo.animal.Arachnida;
-import modelo.animal.Ave;
-import modelo.animal.Mammalia;
-import modelo.animal.Nome;
-import modelo.animal.Reptilia;
+import model.animal.Amphibia;
+import model.animal.Animal;
+import model.animal.Arachnida;
+import model.animal.Ave;
+import model.animal.Mammalia;
+import model.animal.Nome;
+import model.animal.Reptilia;
 
 @ViewScoped
 @Named

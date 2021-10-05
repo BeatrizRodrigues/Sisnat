@@ -1,4 +1,4 @@
-package modelo.animal;
+package model.animal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,29 +16,29 @@ import javax.persistence.Table;
  * @author beeat
  */
 @Entity
-@Table(name="mamalia")
-@DiscriminatorValue("mamalia")
-public class Mammalia extends Animal implements Serializable {
+@Table(name="aves")
+@DiscriminatorValue("aves")
+public class Ave extends Animal implements Serializable {
     
-    @OneToMany(mappedBy = "mamalia", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MorfometriaMammalia> morfometria;
+    @OneToMany(mappedBy = "aves", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MorfometriaAves> morfometria;
     
-    public Mammalia(){
+    public Ave(){
         morfometria = new ArrayList();
     }
 
-    public List<MorfometriaMammalia> getMorfometria() {
+    public List<MorfometriaAves> getMorfometria() {
         return morfometria;
     }
 
-    public void setMorfometria(List<MorfometriaMammalia> morfometria) {
+    public void setMorfometria(List<MorfometriaAves> morfometria) {
         this.morfometria = morfometria;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.morfometria);
+        hash = 71 * hash + Objects.hashCode(this.morfometria);
         return hash;
     }
 
@@ -53,7 +53,7 @@ public class Mammalia extends Animal implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Mammalia other = (Mammalia) obj;
+        final Ave other = (Ave) obj;
         if (!Objects.equals(this.morfometria, other.morfometria)) {
             return false;
         }
@@ -62,8 +62,7 @@ public class Mammalia extends Animal implements Serializable {
 
     @Override
     public String toString() {
-        return "Mamalia{" + "morfometria=" + morfometria + '}';
-    }
-    
+        return "Ave{" + "morfometria=" + morfometria + '}';
+    }   
     
 }

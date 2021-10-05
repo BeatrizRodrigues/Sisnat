@@ -13,8 +13,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.animal.Amphibia;
-import modelo.animal.EcdiseAmphibia;
+import model.animal.Amphibia;
+import model.animal.EcdiseAmphibia;
 
 /**
  *
