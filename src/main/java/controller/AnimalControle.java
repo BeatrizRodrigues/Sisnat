@@ -101,7 +101,7 @@ public class AnimalControle implements Serializable {
             FacesContext context = FacesContext.getCurrentInstance();
             ExternalContext ectx = context.getExternalContext();
             ectx.getSessionMap().put("animal", animal);
-            System.out.println("Ave");
+            System.out.println("Aves");
             return "aveCadastrada?faces-redirect=true";
         }
         if (animal instanceof Arachnida){

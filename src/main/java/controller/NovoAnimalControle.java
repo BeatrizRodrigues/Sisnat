@@ -33,6 +33,7 @@ public class NovoAnimalControle implements Serializable {
     private List<Nome> nomes; 
     private List<String> nomesCientificos; 
     private Boolean habilitaDoador;
+    private Boolean habilitaMotivo;
     
     
     @PostConstruct
@@ -77,6 +78,16 @@ public class NovoAnimalControle implements Serializable {
             habilitaDoador = true;
         }else{
             habilitaDoador = false;
+        }
+    }
+    
+    public void habilitarMotivo(){
+        if(novoAnimal.getMotivo().equals("Animal encaminhado para o IPEVS através do IBAMA") || 
+                novoAnimal.getMotivo().equals("Animal encaminhado para o IPEVS através do IAT") || 
+                novoAnimal.getMotivo().equals("Animal encaminhado para o IPEVS através da Polí­cia Ambiental")){
+            habilitaMotivo = true;
+        }else{
+            habilitaMotivo = false;
         }
     }
     
@@ -158,7 +169,29 @@ public class NovoAnimalControle implements Serializable {
     public void setNomesCientificos(List<String> nomesCientificos) {
         this.nomesCientificos = nomesCientificos;
     }
-    
-    
-    
+
+    public DAO getDao() {
+        return dao;
+    }
+
+    public void setDao(DAO dao) {
+        this.dao = dao;
+    }
+
+    public DAONome getDaoNome() {
+        return daoNome;
+    }
+
+    public void setDaoNome(DAONome daoNome) {
+        this.daoNome = daoNome;
+    }
+
+    public Boolean getHabilitaMotivo() {
+        return habilitaMotivo;
+    }
+
+    public void setHabilitaMotivo(Boolean habilitaMotivo) {
+        this.habilitaMotivo = habilitaMotivo;
+    }
+        
 }

@@ -2,15 +2,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <title>Login</title>         
         <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
-    <h:body>
-        <p:link outcome="/menu.xhtml" value="entrar" styleClass="link" />
+    
         <p:dialog visible="true" width="400" height="350" header="Acessar o Sistema" showHeader="false" modal="true" resizable="false" 
                   style="background-color: #E7FFEB; border-radius: 10px;">            
             <h:panelGrid style="margin: 0 auto;"><h:outputText styleClass="fa fa-user fa-5x"/></h:panelGrid>
@@ -30,5 +28,5 @@
             </h:form>
         </p:dialog>
         <h:graphicImage name="img/lag.png" style="width: 350px; height: 350px; position: absolute; left: 0px; bottom: 0px;"/>
-    </h:body>
+    
 </html>

@@ -1,3 +1,4 @@
+
 package model.animal;
 
 import java.io.Serializable;

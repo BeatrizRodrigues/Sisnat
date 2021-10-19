@@ -4,35 +4,96 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    
+
     <ui:composition template="/template/template.xhtml">
-        <ui:define name="body">
-            <h:form >
-                <h:panelGrid style=" width:100%; text-align: right"  >                 
-                    <p:commandLink styleClass="link" value="menu" action="/menu"  />                                  
-                </h:panelGrid>
-            </h:form>   
+        <ui:define name="body"> 
             <p/>
-            <h:form>
-                <h:outputLabel value="Espécie: " style="font-size: 18px; color: #008037;"/>
-                <h:outputLabel value="Mammalia" style="font-size: 18px; color: #000;"/>
-                <h:outputLabel value="Nome científico: "/>
-                <h:outputLabel value="#{mammaliaCadastradaController.animal.nomeCientifico}"/>
-                
-                <h:outputLabel value="Nome popular: "/>
-                <h:outputLabel value="#{mammaliaCadastradaController.animal.nomePopular}"/>
-            </h:form>
+            <p/>
+            <h:panelGrid style="border-style: groove; border-color: #6aa570; border-radius: 10px; border-width: 1px 1px; display: flex;">
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="Nº: #{mammaliaCadastradaController.animal.id}" style="font-size: 18px;"/>
+                </h:form>
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="Espécie: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="Mammalia" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                    <h:outputLabel value="Nome científico: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value=" #{mammaliaCadastradaController.animal.nomeCientifico}" style="font-size: 18px; color: #000; padding-right: 40px;"/>                
+                    <h:outputLabel value="Nome popular: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value=" #{mammaliaCadastradaController.animal.nomePopular}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                </h:form>
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="Sexo: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.sexo}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Data de nascimento: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.dataNascimento}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                    
+                    <h:outputLabel value="Data de entrada: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.dataEntrada}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Faixa etária: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.faixaEtaria}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Condição fí­sica: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.condicaoFisica}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                </h:form>
+
+            </h:panelGrid>
+            <p/>
+            <h:panelGrid style="border-style: groove; border-color: #6aa570; border-radius: 10px; border-width: 1px 1px; display: flex;">
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="Origem: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.procedencia}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Motivo: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.motivo}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                </h:form>
+
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="Endereço: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.endereco}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Município de origem: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.municipioDeOrigem}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                </h:form>
+
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="Coordenadas: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.coordenadas}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Área do resgate: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.areaDoResgate}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                </h:form>
+
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="Nome do doador: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.nomeDoador}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Telefone: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.telefone}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                </h:form>
+
+                <h:form style="padding: 5px;">
+                    <h:outputLabel value="B.O.: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.BO}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+
+                    <h:outputLabel value="Observação: " style="font-size: 18px; color: #008037;"/>
+                    <h:outputLabel value="#{mammaliaCadastradaController.animal.observacao}" style="font-size: 18px; color: #000; padding-right: 40px;"/>
+                </h:form>
+            </h:panelGrid>
+
             <p/>                                    
             <h:form style="display: flex; justify-content: space-between">
                 <p:commandLink styleClass="text" value="Alimentações" 
                                action="#{mammaliaCadastradaController.alimentar(animal)}" style="margin-left: 150px; text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
-            
+
                 <p:commandLink styleClass="text" value="Observações" 
                                action="#{mammaliaCadastradaController.observacao(animal)}" style="text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
-            
+
                 <p:commandLink styleClass="text" value="Atendimentos" 
                                action="#{mammaliaCadastradaController.ficha(animal)}" style="text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
-            
+
                 <p:commandLink styleClass="text" value="Morfometria" 
                                action="#{mammaliaCadastradaController.morfometria(mammalia)}" style="margin-right: 150px; text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;" />
             </h:form>

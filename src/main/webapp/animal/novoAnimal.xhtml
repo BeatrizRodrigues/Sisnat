@@ -6,101 +6,186 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template/template.xhtml">  
-        <ui:define name="body">        
-                <h:form id="formNovo" >                
-                    <h:panelGrid columns="2" > 
-                        <h:outputLabel value="Nome cienti­fico: "  />
+        <ui:define name="body">             
+            <h:form id="formNovo" >
+                <p/><p/> 
+                <h:panelGrid columns="2">
+
+                    <h:panelGrid columns="1" > 
+                        <p:outputLabel value="Nome cienti­fico: "  />
                         <p:selectOneMenu id="comboNome" value="#{novoAnimalControle.novoAnimal.nomeCientifico}" >
                             <f:selectItem itemLabel="selecione" itemValue="#{null}" />
                             <f:selectItems value="#{novoAnimalControle.nomesCientificos}"
                                            var="n" itemValue="#{n}" itemLabel="#{n}"/>
                             <p:ajax event="change" listener="#{novoAnimalControle.atualizarNomePopular()}"
                                     update="formNovo"/>
-                            
-                        </p:selectOneMenu>                      
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1" >
                         <p:outputLabel value="Nome popular: "/>
                         <p:outputLabel value="#{novoAnimalControle.novoAnimal.nomePopular}"/>
-                        <p:outputLabel value="Sexo: "/>                       
-                        <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.sexo}" unselectable="true">
-                            <f:selectItem itemLabel="Fêmea" itemValue="Fêmea"/>
-                            <f:selectItem itemLabel="Macho" itemValue="Macho"/>
-                            <f:selectItem itemLabel="Indefinido" itemValue="Indefinido"/>
-                        </p:selectOneRadio>
-                        <p:outputLabel value="Faixa etária: "/>                       
-                        <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.faixaEtaria}" unselectable="true">
-                            <f:selectItem itemLabel="Filhote" itemValue="Filhote"/>
-                            <f:selectItem itemLabel="Jovem" itemValue="Jovem"/>
-                            <f:selectItem itemLabel="Adulto" itemValue="Adulto"/>
-                        </p:selectOneRadio>
-                        <p:outputLabel value="Condição fí­sica: "/>                       
-                        <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.condicaoFisica}" unselectable="true">
-                            <f:selectItem itemLabel="Boa" itemValue="Boa"/>
-                            <f:selectItem itemLabel="Ótima" itemValue="Ótima"/>
-                            <f:selectItem itemLabel="Regular" itemValue="Regular"/>
-                            <f:selectItem itemLabel="Ruim" itemValue="Ruim"/>
-                            <f:selectItem itemLabel="Péssima" itemValue="Péssima"/>
-                        </p:selectOneRadio>
-                        <p:outputLabel value="Data de entrada: "/>
-                        <p:calendar id="button" value="#{novoAnimalControle.novoAnimal.dataEntrada}" showOn="button" pattern="dd/MM/yyyy" mask="true"/>
+                    </h:panelGrid>
+
+                </h:panelGrid>
+
+                <h:panelGrid>
+                    <p:outputLabel value="Sexo: "/>                       
+                    <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.sexo}" unselectable="true">
+                        <f:selectItem itemLabel="Fêmea" itemValue="Fêmea"/>
+                        <f:selectItem itemLabel="Macho" itemValue="Macho"/>
+                        <f:selectItem itemLabel="Indefinido" itemValue="Indefinido"/>
+                    </p:selectOneRadio> 
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+
+                    <h:panelGrid columns="1">
                         <p:outputLabel value="Data de nascimento: "/>
                         <p:calendar id="buttonn" value="#{novoAnimalControle.novoAnimal.dataNascimento}" showOn="button" pattern="dd/MM/yyyy" mask="true"/>
-                        <p:outputLabel value="Origem: "/>                       
-                        <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.procedencia}" unselectable="true">
-                            <f:selectItem itemLabel="Apreensão" itemValue="Apreensão"/>
-                            <f:selectItem itemLabel="Entrega voluntária" itemValue="Entrega voluntária"/>
-                            <f:selectItem itemLabel="Nascimento no IPEVS" itemValue="Nascimento no IPEVS"/>
-                            <f:selectItem itemLabel="Recebimento" itemValue="Recebimento"/>
-                            <f:selectItem itemLabel="Resgate" itemValue="Resgate"/>
-                            <p:ajax listener="#{novoAnimalControle.habilitarDoador()}" update="campoDoador"></p:ajax>
-                        </p:selectOneRadio>
-                        <p:outputLabel value="Motivo: "/>                       
-                        <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.motivo}" unselectable="true">
-                            <f:selectItem itemLabel="Animal resgatado pelo IPEVS" itemValue="Animal resgatado pelo IPEVS"/>
-                            <f:selectItem itemLabel="Animal encaminhado para o IPEVS" itemValue="Animal encaminhado para o IPEVS"/>
-                            <f:selectItem itemLabel="Animal retirado pelo IPEVS no local da solicitação" itemValue="Animal retirado pelo IPEVS no local da solicitação"/>
-                            <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do Corpo de Bombeiros" itemValue="Animal encaminhado para o IPEVS através do Corpo de Bombeiros"/>
-                            <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do IBAMA" itemValue="Animal encaminhado para o IPEVS através do IBAMA"/>
-                            <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do IAT" itemValue="Animal encaminhado para o IPEVS através do IAT"/>
-                            <f:selectItem itemLabel="Animal encaminhado para o IPEVS através da Polícia Ambiental" itemValue="Animal encaminhado para o IPEVS através da Polí­cia Ambiental"/>
-                        </p:selectOneRadio>
-                        <p:outputLabel value="B.O.: "/>
-                        <p:inputText value="#{novoAnimalControle.novoAnimal.BO}"
-                                     maxlength="50" />
-                        <p:outputLabel value="Município de origem: "/>
-                        <p:inputText value="#{novoAnimalControle.novoAnimal.municipioDeOrigem}"
-                                     maxlength="30" />
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1">
+                        <p:outputLabel value="Data de entrada: "/>
+                        <p:calendar id="button" value="#{novoAnimalControle.novoAnimal.dataEntrada}" showOn="button" pattern="dd/MM/yyyy" mask="true"/>
+                    </h:panelGrid>
+
+                </h:panelGrid>
+
+
+                <h:panelGrid>
+
+                    <p:outputLabel value="Faixa etária: "/>                       
+                    <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.faixaEtaria}" unselectable="true">
+                        <f:selectItem itemLabel="Filhote" itemValue="Filhote"/>
+                        <f:selectItem itemLabel="Jovem" itemValue="Jovem"/>
+                        <f:selectItem itemLabel="Adulto" itemValue="Adulto"/>
+                    </p:selectOneRadio>                        
+
+                    <p:outputLabel value="Condição fí­sica: "/>                       
+                    <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.condicaoFisica}" unselectable="true">
+                        <f:selectItem itemLabel="Boa" itemValue="Boa"/>
+                        <f:selectItem itemLabel="Ótima" itemValue="Ótima"/>
+                        <f:selectItem itemLabel="Regular" itemValue="Regular"/>
+                        <f:selectItem itemLabel="Ruim" itemValue="Ruim"/>
+                        <f:selectItem itemLabel="Péssima" itemValue="Péssima"/>
+                    </p:selectOneRadio>
+
+                </h:panelGrid>
+
+                <h:panelGrid>
+
+                    <p:outputLabel value="Origem: "/>                       
+                    <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.procedencia}" unselectable="true">
+                        <f:selectItem itemLabel="Apreensão" itemValue="Apreensão"/>
+                        <f:selectItem itemLabel="Entrega voluntária" itemValue="Entrega voluntária"/>
+                        <f:selectItem itemLabel="Nascimento no IPEVS" itemValue="Nascimento no IPEVS"/>
+                        <f:selectItem itemLabel="Recebimento" itemValue="Recebimento"/>
+                        <f:selectItem itemLabel="Resgate" itemValue="Resgate"/>
+                        <p:ajax listener="#{novoAnimalControle.habilitarDoador()}" update="campoDoador"></p:ajax>
+                        <p:ajax listener="#{novoAnimalControle.habilitarDoador()}" update="campoTelefone"></p:ajax>
+                    </p:selectOneRadio>
+
+                    <p:outputLabel value="Motivo: "  />
+                    <p:selectOneMenu id="motivo" value="#{novoAnimalControle.novoAnimal.motivo}" >
+                        <f:selectItem itemLabel="selecione" itemValue="#{null}" />
+                        <f:selectItem itemLabel="Animal resgatado pelo IPEVS" itemValue="Animal resgatado pelo IPEVS"/>
+                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS" itemValue="Animal encaminhado para o IPEVS"/>
+                        <f:selectItem itemLabel="Animal retirado pelo IPEVS no local da solicitação" itemValue="Animal retirado pelo IPEVS no local da solicitação"/>
+                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do Corpo de Bombeiros" itemValue="Animal encaminhado para o IPEVS através do Corpo de Bombeiros"/>
+                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do IBAMA" itemValue="Animal encaminhado para o IPEVS através do IBAMA"/>
+                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do IAT" itemValue="Animal encaminhado para o IPEVS através do IAT"/>
+                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através da Polícia Ambiental" itemValue="Animal encaminhado para o IPEVS através da Polí­cia Ambiental"/>
+                        <p:ajax listener="#{novoAnimalControle.habilitarMotivo()}" update="campoBO"></p:ajax>
+                    </p:selectOneMenu>
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+
+                    <h:panelGrid columns="1">
                         <p:outputLabel value="Endereço: "/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.endereco}" 
                                      maxlength = "50" />
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1">
+                        <p:outputLabel value="Município de origem: "/>
+                        <p:inputText value="#{novoAnimalControle.novoAnimal.municipioDeOrigem}"
+                                     maxlength="30" />
+                    </h:panelGrid>
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+
+                    <h:panelGrid columns="1">
                         <p:outputLabel value="Coordenadas: "/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.coordenadas}"
                                      maxlength="30" />
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1">
                         <p:outputLabel value="Área do resgate: "/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.areaDoResgate}"
                                      maxlength="30" />
+                    </h:panelGrid>
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+
+                    <h:panelGrid columns="1">
                         <p:outputLabel value="Nome do doador: "/>
                         <p:inputText id="campoDoador" disabled="#{!novoAnimalControle.habilitaDoador}" value="#{novoAnimalControle.novoAnimal.nomeDoador}"
-                                     maxlength="50" />                        
+                                     maxlength="50" />   
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1">
                         <p:outputLabel value="Telefone: "/>
-                        <p:inputText value="#{novoAnimalControle.novoAnimal.telefone}"
-                                     maxlength="30" />                        
+                        <p:inputText id="campoTelefone" disabled="#{!novoAnimalControle.habilitaDoador}" value="#{novoAnimalControle.novoAnimal.telefone}"
+                                     maxlength="30" />
+                    </h:panelGrid>
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+
+                    <h:panelGrid columns="1">
+                        <p:outputLabel value="B.O.: "/>
+                        <p:inputText id="campoBO" disabled="#{!novoAnimalControle.habilitaMotivo}" value="#{novoAnimalControle.novoAnimal.BO}"
+                                     maxlength="50" />   
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1">
                         <p:outputLabel value="Observação: "/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.observacao}"
                                      maxlength="50" />
-
                     </h:panelGrid>
-                    <p/>
-                    <p:outputPanel style="width: 100%; text-align:center" >
-                        <p:commandButton value="Cancelar" action="animal" 
-                                         update="" immediate="true" />
-                        <p:commandButton value="Confirmar" action="#{novoAnimalControle.inserir()}" 
-                                         />                           
-                    </p:outputPanel>
-                    <p:outputPanel style="width: 100%; text-align:center" >
-                        <p:messages showIcon="false" closable="true" />
-                    </p:outputPanel>  
-                </h:form>
-           
-   </ui:define>
+
+                </h:panelGrid>
+                <!--                    <p:outputLabel value="Motivo: "/>                       
+                                    <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.motivo}" unselectable="true">
+                                        <f:selectItem itemLabel="Animal resgatado pelo IPEVS" itemValue="Animal resgatado pelo IPEVS"/>
+                                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS" itemValue="Animal encaminhado para o IPEVS"/>
+                                        <f:selectItem itemLabel="Animal retirado pelo IPEVS no local da solicitação" itemValue="Animal retirado pelo IPEVS no local da solicitação"/>
+                                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do Corpo de Bombeiros" itemValue="Animal encaminhado para o IPEVS através do Corpo de Bombeiros"/>
+                                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do IBAMA" itemValue="Animal encaminhado para o IPEVS através do IBAMA"/>
+                                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através do IAT" itemValue="Animal encaminhado para o IPEVS através do IAT"/>
+                                        <f:selectItem itemLabel="Animal encaminhado para o IPEVS através da Polícia Ambiental" itemValue="Animal encaminhado para o IPEVS através da Polí­cia Ambiental"/>
+                                    </p:selectOneRadio>-->
+
+                <p/>
+                <p:outputPanel style="width: 100%; text-align:center" >
+                    <p:commandButton value="Cancelar" action="animal" 
+                                     update="" immediate="true" style="margin-left: 150px; text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;"/>
+                    <p:commandButton value="Confirmar" action="#{novoAnimalControle.inserir()}" style="margin-left: 150px; text-align: center; font-size: 16px; background-color: #4E67EC; color: #fff; border-radius: 5px; padding: 10px;"/>                           
+                </p:outputPanel>
+                <p:outputPanel style="width: 100%; text-align:center" >
+                    <p:messages showIcon="false" closable="true" />
+                </p:outputPanel>  
+            </h:form>
+
+        </ui:define>
     </ui:composition>
 </html>

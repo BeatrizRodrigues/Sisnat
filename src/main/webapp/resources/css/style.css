@@ -29,6 +29,9 @@ a{
     color: #008037;
 }
 
+.ui-widget-overlay{
+    background: #fff;
+}
 .ui-button{
     width: 150px;
 }
@@ -48,4 +51,8 @@ a{
     background: #6aa570 !important;
     border-color: #6aa570;
     color: #fff;
+}
+
+.ui-inputgroup{
+    border-color: #FF1616 !important;
 }
