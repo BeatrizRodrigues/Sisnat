@@ -26,7 +26,7 @@ a{
 }
 
 .fa-user{
-    color: #008037;
+    color: #6aa570;
 }
 
 .ui-widget-overlay{
@@ -53,6 +53,70 @@ a{
     color: #fff;
 }
 
-.ui-inputgroup{
-    border-color: #FF1616 !important;
+.ui-selectonemenu-items{
+    background: #fff !important;
+    color: #008037;
+}
+
+.ui-selectonemenu-trigger{
+    background: #6aa570 !important;
+    box-shadow: none !important;
+}
+
+.ui-selectonemenu{
+    border-color: #6aa570 !important;
+    background: transparent;
+}
+
+.ui-selectonemenu-label{
+    box-shadow: inset 0px 4px 4px #FFFFFF !important;
+}
+
+.ui-selectonemenu:hover{
+    background: #C6F0C7 !important;
+}
+
+.ui-radiobutton-box{
+    background: #E7FFEB !important;
+    border-color: #C6F0C7 !important;
+}
+
+.ui-radiobutton-box:hover{
+    background: #E7FFEB !important;
+}
+
+.ui-datepicker-header{
+    background: #C6F0C7 !important;
+    color: #000;
+}
+
+.ui-datepicker-next{
+    color: #000 !important;
+}
+
+.ui-datepicker{
+    box-shadow: inset 0px 4px 4px #FFFFFF !important;
+}
+
+.ui-datepicker-buttonpane{
+    color: #6aa570 !important;
+}
+
+.ui-datepicker-month{
+    color: #000 !important;
+}
+
+.ui-button-text .calendar{
+    background: #6aa570 !important;
+}
+
+.ui-icon-calendar{
+    color: #fff !important;
+}
+
+.calendar input{
+    box-shadow: none !important;
+    border-color: #6aa570;
+    color: #008037 !important;
+    width: 60%;
 }

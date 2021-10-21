@@ -9,24 +9,23 @@
         <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     
-        <p:dialog visible="true" width="400" height="350" header="Acessar o Sistema" showHeader="false" modal="true" resizable="false" 
-                  style="background-color: #E7FFEB; border-radius: 10px;">            
+        <p:dialog visible="true" header="Acessar o Sistema" showHeader="false" modal="true" resizable="false" 
+                  style="background-color: #E7FFEB; border-radius: 10px; width: 40%; height: 70%;">            
             <h:panelGrid style="margin: 0 auto;"><h:outputText styleClass="fa fa-user fa-5x"/></h:panelGrid>
             <h:form id="formLogin">
                 <h:panelGrid cellspacing="10">
-                    <h2>Acesse o sistema</h2>                 
-                    <p:inputText id="campoLogin" placeholder="Usuário" value="#{indexControle.adm.login}" size="50" required="true" maxlength="10" requiredMessage="Campo usuário é obrigatório">
-                        <p:ajax listener="#{indexControle.converter()}" update="campoLogin" />
+                    <h2 style="text-align: center;">Acesse o Sistema</h2>                 
+                    <p:inputText id="campoLogin" placeholder="Usuário" value="#{indexControle.adm.login}" size="50" required="true" maxlength="10" requiredMessage="Campo usuário é obrigatório" style="box-shadow: none !important; height: 15px; color: #008037">
+                        <p:ajax listener="#{indexControle.converter()}" update="campoLogin"/>
                     </p:inputText>
                     <p:password placeholder="Senha" feedback="false" size="50"  maxlength="10"
                                 value="#{indexControle.adm.senha}"
-                                required="true" requiredMessage="Campo senha é obrigatória" />  
+                                required="true" requiredMessage="Campo senha é obrigatória" style="box-shadow: none !important; height: 15px; color: #008037"/>  
                     <p/>
-                    <p:commandButton value="Entrar" ajax="false" action="#{indexControle.autenticar()}" styleClass="ui-state-hover" style="background: #008037; border-color: #008037; color: #fff"/>
+                    <p:commandButton value="Entrar" ajax="false" action="#{indexControle.autenticar()}" styleClass="ui-state-hover" style="background: #6aa570; border-color: #6aa570; color: #fff; display: flex; justify-content: center;"/>
                 </h:panelGrid>
                 <p:messages showIcon="false" closable="true" />
             </h:form>
         </p:dialog>
-        <h:graphicImage name="img/lag.png" style="width: 350px; height: 350px; position: absolute; left: 0px; bottom: 0px;"/>
     
 </html>

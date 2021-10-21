@@ -11,8 +11,8 @@
                 <p/><p/> 
                 <h:panelGrid columns="2">
 
-                    <h:panelGrid columns="1" > 
-                        <p:outputLabel value="Nome cienti­fico: "  />
+                    <h:panelGrid columns="1"> 
+                        <p:outputLabel value="Nome cienti­fico: " style="font-size: 14px; color: #008037;"/>
                         <p:selectOneMenu id="comboNome" value="#{novoAnimalControle.novoAnimal.nomeCientifico}" >
                             <f:selectItem itemLabel="selecione" itemValue="#{null}" />
                             <f:selectItems value="#{novoAnimalControle.nomesCientificos}"
@@ -22,15 +22,15 @@
                         </p:selectOneMenu>
                     </h:panelGrid>
 
-                    <h:panelGrid columns="1" >
-                        <p:outputLabel value="Nome popular: "/>
-                        <p:outputLabel value="#{novoAnimalControle.novoAnimal.nomePopular}"/>
+                    <h:panelGrid columns="1">
+                        <p:outputLabel value="Nome popular: " style="font-size: 14px; color: #008037;"/>
+                        <p:inputText value="#{novoAnimalControle.novoAnimal.nomePopular}" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
 
                 <h:panelGrid>
-                    <p:outputLabel value="Sexo: "/>                       
+                    <p:outputLabel value="Sexo: " style="font-size: 14px; color: #008037;"/>                       
                     <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.sexo}" unselectable="true">
                         <f:selectItem itemLabel="Fêmea" itemValue="Fêmea"/>
                         <f:selectItem itemLabel="Macho" itemValue="Macho"/>
@@ -41,13 +41,13 @@
                 <h:panelGrid columns="2">
 
                     <h:panelGrid columns="1">
-                        <p:outputLabel value="Data de nascimento: "/>
-                        <p:calendar id="buttonn" value="#{novoAnimalControle.novoAnimal.dataNascimento}" showOn="button" pattern="dd/MM/yyyy" mask="true"/>
+                        <p:outputLabel value="Data de nascimento: " style="font-size: 14px; color: #008037;"/>
+                        <p:calendar id="buttonn" styleClass="calendar" value="#{novoAnimalControle.novoAnimal.dataNascimento}" showOn="button" pattern="dd/MM/yyyy" mask="true"/>
                     </h:panelGrid>
 
                     <h:panelGrid columns="1">
-                        <p:outputLabel value="Data de entrada: "/>
-                        <p:calendar id="button" value="#{novoAnimalControle.novoAnimal.dataEntrada}" showOn="button" pattern="dd/MM/yyyy" mask="true"/>
+                        <p:outputLabel value="Data de entrada: " style="font-size: 14px; color: #008037;"/>
+                        <p:calendar id="button" styleClass="calendar" value="#{novoAnimalControle.novoAnimal.dataEntrada}" showOn="button" pattern="dd/MM/yyyy" mask="true"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
@@ -55,14 +55,14 @@
 
                 <h:panelGrid>
 
-                    <p:outputLabel value="Faixa etária: "/>                       
+                    <p:outputLabel value="Faixa etária: " style="font-size: 14px; color: #008037;"/>                       
                     <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.faixaEtaria}" unselectable="true">
                         <f:selectItem itemLabel="Filhote" itemValue="Filhote"/>
                         <f:selectItem itemLabel="Jovem" itemValue="Jovem"/>
                         <f:selectItem itemLabel="Adulto" itemValue="Adulto"/>
                     </p:selectOneRadio>                        
 
-                    <p:outputLabel value="Condição fí­sica: "/>                       
+                    <p:outputLabel value="Condição fí­sica: " style="font-size: 14px; color: #008037;"/>                       
                     <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.condicaoFisica}" unselectable="true">
                         <f:selectItem itemLabel="Boa" itemValue="Boa"/>
                         <f:selectItem itemLabel="Ótima" itemValue="Ótima"/>
@@ -73,9 +73,9 @@
 
                 </h:panelGrid>
 
-                <h:panelGrid>
+                <h:panelGrid style="width: 40%;">
 
-                    <p:outputLabel value="Origem: "/>                       
+                    <p:outputLabel value="Origem: " style="font-size: 14px; color: #008037;"/>                       
                     <p:selectOneRadio value="#{novoAnimalControle.novoAnimal.procedencia}" unselectable="true">
                         <f:selectItem itemLabel="Apreensão" itemValue="Apreensão"/>
                         <f:selectItem itemLabel="Entrega voluntária" itemValue="Entrega voluntária"/>
@@ -86,7 +86,7 @@
                         <p:ajax listener="#{novoAnimalControle.habilitarDoador()}" update="campoTelefone"></p:ajax>
                     </p:selectOneRadio>
 
-                    <p:outputLabel value="Motivo: "  />
+                    <p:outputLabel value="Motivo: " style="font-size: 14px; color: #008037; width: 100%"/>
                     <p:selectOneMenu id="motivo" value="#{novoAnimalControle.novoAnimal.motivo}" >
                         <f:selectItem itemLabel="selecione" itemValue="#{null}" />
                         <f:selectItem itemLabel="Animal resgatado pelo IPEVS" itemValue="Animal resgatado pelo IPEVS"/>
@@ -101,66 +101,66 @@
 
                 </h:panelGrid>
 
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" style="width: 40%;">
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="Endereço: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="Endereço: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.endereco}" 
-                                     maxlength = "50" />
+                                     maxlength = "50" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>
                     </h:panelGrid>
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="Município de origem: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="Município de origem: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.municipioDeOrigem}"
-                                     maxlength="30" />
+                                     maxlength="30" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
 
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" style="width: 40%;">
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="Coordenadas: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="Coordenadas: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.coordenadas}"
-                                     maxlength="30" />
+                                     maxlength="30" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>
                     </h:panelGrid>
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="Área do resgate: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="Área do resgate: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.areaDoResgate}"
-                                     maxlength="30" />
+                                     maxlength="30" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
 
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" style="width: 40%;">
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="Nome do doador: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="Nome do doador: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText id="campoDoador" disabled="#{!novoAnimalControle.habilitaDoador}" value="#{novoAnimalControle.novoAnimal.nomeDoador}"
-                                     maxlength="50" />   
+                                     maxlength="50" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>   
                     </h:panelGrid>
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="Telefone: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="Telefone: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText id="campoTelefone" disabled="#{!novoAnimalControle.habilitaDoador}" value="#{novoAnimalControle.novoAnimal.telefone}"
-                                     maxlength="30" />
+                                     maxlength="30" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
 
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" style="width: 40%;">
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="B.O.: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="B.O.: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText id="campoBO" disabled="#{!novoAnimalControle.habilitaMotivo}" value="#{novoAnimalControle.novoAnimal.BO}"
-                                     maxlength="50" />   
+                                     maxlength="50" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>   
                     </h:panelGrid>
 
-                    <h:panelGrid columns="1">
-                        <p:outputLabel value="Observação: "/>
+                    <h:panelGrid columns="1" style="width: 70%;">
+                        <p:outputLabel value="Observação: " style="font-size: 14px; color: #008037;"/>
                         <p:inputText value="#{novoAnimalControle.novoAnimal.observacao}"
-                                     maxlength="50" />
+                                     maxlength="50" style="box-shadow: none !important; border-color: #6aa570; width: 120%"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
